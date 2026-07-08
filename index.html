@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,9 +7,9 @@
 <meta name="description" content="Portfolio of Ha Ngo (Hazel), PMP® Certified Project Manager specializing in IT delivery, cloud infrastructure, and software products.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=DM+Serif+Display&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=DM+Serif+Display&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 <style>
-/* ── DESIGN SYSTEM & VARIABLE TOKENS ── */
+/* ── DESIGN SYSTEM & BRAND TOKENS (Warm, Editorial Light Vibe) ── */
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -17,216 +17,78 @@
 }
 
 :root {
-  /* Common transitions */
-  --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-  --transition-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  --transition-slow: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  /* Color Palette */
+  --bg: #f9f8f5;          /* Warm cream/off-white background */
+  --surface: #ffffff;     /* Pure white card surfaces */
+  --surface-secondary: #f4f2eb; /* Warm beige */
+  --border: #e4e2db;      /* Soft beige border */
+  --border-focus: #115e59; /* Deep teal border */
+  
+  --ink: #1a1a18;         /* Off-black/Charcoal for primary text */
+  --ink-muted: #5f5e5a;   /* Soft slate for body/paragraphs */
+  --ink-subtle: #8a8a84;  /* Muted grey for labels/metadata */
 
-  /* Font mappings */
-  --font-sans: 'Plus Jakarta Sans', sans-serif;
+  /* Refined Accent Colors (Non-neon, organic tones) */
+  --primary: #0f6e56;     /* Deep Forest Teal */
+  --primary-light: #e1f5ee;
+  --primary-hover: #085041;
+  
+  --blue: #185fa5;        /* Corporate Navy */
+  --blue-light: #e6f1fb;
+  
+  --purple: #534ab7;      /* Royal Violet */
+  --purple-light: #eeedfe;
+  
+  --amber: #854f0b;       /* Warm Bronze */
+  --amber-light: #faeeda;
+  
+  --green: #3b6d11;       /* Olive Green */
+  --green-light: #eaf3de;
+
+  --gray: #5f5e5a;
+  --gray-light: #f1efe8;
+
+  /* Typography */
+  --font-sans: 'Inter', sans-serif;
   --font-serif: 'DM Serif Display', serif;
-}
+  --font-italic: 'Playfair Display', serif;
 
-[data-theme="dark"] {
-  --bg: #0b0c10;
-  --bg-gradient: radial-gradient(circle at 50% 0%, #151821 0%, #0b0c10 100%);
-  --surface: rgba(20, 24, 33, 0.75);
-  --surface-hover: rgba(28, 34, 46, 0.9);
-  --surface-solid: #141821;
-  --border: rgba(255, 255, 255, 0.08);
-  --border-hover: rgba(255, 255, 255, 0.16);
-  --ink: #f1f5f9;
-  --ink-muted: #94a3b8;
-  --ink-subtle: #475569;
-  
-  /* Glowing Accent Colors */
-  --primary: #6366f1; /* Indigo */
-  --primary-hover: #4f46e5;
-  --primary-glow: rgba(99, 102, 241, 0.15);
-  
-  --success: #10b981; /* Emerald */
-  --success-glow: rgba(16, 185, 129, 0.12);
-  
-  --info: #06b6d4; /* Cyan */
-  --info-glow: rgba(6, 182, 212, 0.12);
-  
-  --amber: #f59e0b; /* Amber */
-  --amber-glow: rgba(245, 158, 11, 0.12);
-  
-  --purple: #a855f7; /* Purple */
-  --purple-glow: rgba(168, 85, 247, 0.12);
+  /* Transitions */
+  --transition-fast: 0.15s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --transition-normal: 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 
-  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.5);
-  --shadow-md: 0 8px 30px rgba(0, 0, 0, 0.4);
-  --shadow-glow: 0 0 25px rgba(99, 102, 241, 0.2);
-  
-  --pill-bg-purple: rgba(168, 85, 247, 0.15);
-  --pill-color-purple: #c084fc;
-  --pill-bg-blue: rgba(59, 130, 246, 0.15);
-  --pill-color-blue: #60a5fa;
-  --pill-bg-teal: rgba(20, 184, 166, 0.15);
-  --pill-color-teal: #2dd4bf;
-  --pill-bg-gray: rgba(148, 163, 184, 0.15);
-  --pill-color-gray: #cbd5e1;
-  --pill-bg-amber: rgba(245, 158, 11, 0.15);
-  --pill-color-amber: #fbbf24;
-  --pill-bg-green: rgba(16, 185, 129, 0.15);
-  --pill-color-green: #34d399;
-}
-
-[data-theme="light"] {
-  --bg: #f8fafc;
-  --bg-gradient: radial-gradient(circle at 50% 0%, #eff6ff 0%, #f8fafc 100%);
-  --surface: rgba(255, 255, 255, 0.8);
-  --surface-hover: rgba(255, 255, 255, 0.95);
-  --surface-solid: #ffffff;
-  --border: rgba(0, 0, 0, 0.08);
-  --border-hover: rgba(0, 0, 0, 0.15);
-  --ink: #0f172a;
-  --ink-muted: #475569;
-  --ink-subtle: #94a3b8;
-  
-  /* Accent Colors */
-  --primary: #4f46e5;
-  --primary-hover: #4338ca;
-  --primary-glow: rgba(79, 70, 229, 0.08);
-  
-  --success: #059669;
-  --success-glow: rgba(5, 150, 105, 0.08);
-  
-  --info: #0891b2;
-  --info-glow: rgba(8, 145, 178, 0.08);
-  
-  --amber: #d97706;
-  --amber-glow: rgba(217, 119, 6, 0.08);
-  
-  --purple: #9333ea;
-  --purple-glow: rgba(147, 51, 234, 0.08);
-
-  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.05);
-  --shadow-glow: 0 0 25px rgba(79, 70, 229, 0.1);
-  
-  --pill-bg-purple: rgba(147, 51, 234, 0.1);
-  --pill-color-purple: #7e22ce;
-  --pill-bg-blue: rgba(37, 99, 235, 0.1);
-  --pill-color-blue: #1d4ed8;
-  --pill-bg-teal: rgba(13, 148, 136, 0.1);
-  --pill-color-teal: #0f766e;
-  --pill-bg-gray: rgba(71, 85, 105, 0.1);
-  --pill-color-gray: #334155;
-  --pill-bg-amber: rgba(217, 119, 6, 0.1);
-  --pill-color-amber: #b45309;
-  --pill-bg-green: rgba(5, 150, 105, 0.1);
-  --pill-color-green: #047857;
+  /* Shadows (Soft, organic, no glows) */
+  --shadow-sm: 0 2px 8px rgba(26, 26, 24, 0.03);
+  --shadow-md: 0 8px 24px rgba(26, 26, 24, 0.05);
 }
 
 html {
   scroll-behavior: smooth;
   font-size: 16px;
+  -webkit-font-smoothing: antialiased;
 }
 
 body {
   font-family: var(--font-sans);
-  background: var(--bg);
-  background-image: var(--bg-gradient);
+  background-color: var(--bg);
   color: var(--ink);
   line-height: 1.6;
   overflow-x: hidden;
-  transition: background var(--transition-normal), color var(--transition-normal);
 }
 
-/* ── LAYOUT UTILITIES ── */
 .container {
-  max-width: 1140px;
+  max-width: 1040px;
   margin: 0 auto;
   padding: 0 24px;
 }
 
-/* ── DYNAMIC GLOW BACKGROUNDS ── */
-.glow-wrapper {
-  position: relative;
-  overflow: hidden;
-}
-
-.glow-orb {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(120px);
-  pointer-events: none;
-  z-index: 0;
-  transition: transform var(--transition-slow) ease, opacity var(--transition-normal);
-}
-.glow-orb-1 {
-  width: 450px;
-  height: 450px;
-  background: var(--primary-glow);
-  top: -100px;
-  left: -50px;
-  opacity: 0.7;
-}
-.glow-orb-2 {
-  width: 500px;
-  height: 500px;
-  background: var(--info-glow);
-  top: 30%;
-  right: -100px;
-  opacity: 0.5;
-}
-.glow-orb-3 {
-  width: 400px;
-  height: 400px;
-  background: var(--success-glow);
-  bottom: 10%;
-  left: 10%;
-  opacity: 0.6;
-}
-
-/* ── THEME SWITCHER ── */
-.theme-toggle-btn {
-  position: fixed;
-  bottom: 24px;
-  right: 24px;
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  background: var(--surface-solid);
-  border: 1px solid var(--border);
-  color: var(--ink);
-  cursor: pointer;
-  z-index: 999;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: var(--shadow-md);
-  transition: transform var(--transition-fast), border-color var(--transition-fast);
-}
-.theme-toggle-btn:hover {
-  transform: scale(1.1) rotate(12deg);
-  border-color: var(--primary);
-  box-shadow: var(--shadow-glow);
-}
-.theme-toggle-btn svg {
-  width: 20px;
-  height: 20px;
-  fill: none;
-  stroke: currentColor;
-  stroke-width: 2;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
-[data-theme="dark"] .theme-toggle-btn .sun-icon,
-[data-theme="light"] .theme-toggle-btn .moon-icon {
-  display: none;
-}
-
 /* ── PROGRESS BAR ── */
-.scroll-progress-bar {
+.scroll-progress {
   position: fixed;
   top: 0;
   left: 0;
-  height: 3px;
-  background: linear-gradient(90deg, var(--primary), var(--info));
+  height: 2px;
+  background-color: var(--primary);
   z-index: 1000;
   width: 0%;
   transition: width 0.1s ease-out;
@@ -234,245 +96,151 @@ body {
 
 /* ── HERO / COVER ── */
 .hero {
-  padding: 120px 0 80px;
-  position: relative;
-  z-index: 1;
-}
-
-.hero-grid {
-  display: grid;
-  grid-template-columns: 1.2fr 0.8fr;
-  gap: 48px;
-  align-items: center;
-}
-
-@media (max-width: 991px) {
-  .hero-grid {
-    grid-template-columns: 1fr;
-    gap: 36px;
-    text-align: center;
-  }
-}
-
-.hero-content {
+  padding: 100px 0 70px;
   position: relative;
 }
 
-.badge-wrapper {
-  margin-bottom: 20px;
-  display: inline-flex;
+.hero-layout {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
-.pmp-badge {
+.hero-eyebrow {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-subtle);
+  margin-bottom: 12px;
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: linear-gradient(135deg, rgba(99, 102, 241, 0.15) 0%, rgba(6, 182, 212, 0.15) 100%);
-  border: 1px solid var(--primary);
-  border-radius: 30px;
-  padding: 6px 16px;
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--ink);
-  letter-spacing: 0.05em;
-  box-shadow: 0 0 15px rgba(99, 102, 241, 0.15);
-  animation: pulse-border 2.5s infinite alternate;
 }
 
-@keyframes pulse-border {
-  0% { box-shadow: 0 0 10px rgba(99, 102, 241, 0.1); border-color: rgba(99, 102, 241, 0.7); }
-  100% { box-shadow: 0 0 20px rgba(99, 102, 241, 0.35); border-color: var(--primary); }
+.hero-eyebrow::after {
+  content: '';
+  width: 24px;
+  height: 1px;
+  background-color: var(--border);
 }
 
 .hero-title {
-  font-family: var(--font-sans);
-  font-size: clamp(38px, 6vw, 64px);
-  font-weight: 800;
+  font-family: var(--font-serif);
+  font-size: clamp(40px, 6.5vw, 68px);
+  font-weight: 400;
   line-height: 1.1;
-  letter-spacing: -0.02em;
-  margin-bottom: 16px;
+  letter-spacing: -0.01em;
   color: var(--ink);
+  margin-bottom: 8px;
 }
 
 .hero-title span {
-  background: linear-gradient(135deg, var(--primary) 0%, var(--info) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  display: inline-block;
+  color: var(--primary);
 }
 
 .hero-subtitle {
-  font-size: clamp(18px, 2.5vw, 24px);
+  font-size: clamp(16px, 2vw, 20px);
   font-weight: 500;
   color: var(--ink-muted);
   margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.hero-subtitle .bullet {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background-color: var(--border);
 }
 
 .hero-tagline {
-  font-size: 16px;
-  line-height: 1.75;
-  color: var(--ink-muted);
-  max-width: 600px;
-  margin: 0 auto 36px;
-  border-left: 3px solid var(--primary);
-  padding-left: 18px;
-  text-align: left;
+  font-family: var(--font-italic);
+  font-style: italic;
+  font-size: clamp(16px, 2.2vw, 20px);
+  line-height: 1.6;
+  color: var(--primary);
+  max-width: 680px;
+  margin-bottom: 32px;
 }
 
-@media (max-width: 991px) {
-  .hero-tagline {
-    max-width: 100%;
-    margin-bottom: 30px;
-  }
-}
-
-.hero-buttons {
+.hero-contact {
   display: flex;
   flex-wrap: wrap;
-  gap: 16px;
+  gap: 20px;
+  margin-bottom: 36px;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 24px;
+  width: 100%;
 }
 
-@media (max-width: 991px) {
-  .hero-buttons {
-    justify-content: center;
-  }
-}
-
-.btn {
+.contact-link {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ink-muted);
+  text-decoration: none;
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  padding: 12px 28px;
-  border-radius: 8px;
-  font-size: 15px;
-  font-weight: 600;
-  text-decoration: none;
-  cursor: pointer;
-  transition: all var(--transition-fast);
+  gap: 8px;
+  transition: color var(--transition-fast);
 }
 
-.btn-primary {
-  background: var(--primary);
-  color: #ffffff;
-  border: 1px solid var(--primary);
-  box-shadow: var(--shadow-glow);
-}
-
-.btn-primary:hover {
-  background: var(--primary-hover);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(99, 102, 241, 0.35);
-}
-
-.btn-secondary {
-  background: var(--surface);
-  color: var(--ink);
-  border: 1px solid var(--border);
-}
-
-.btn-secondary:hover {
-  background: var(--surface-hover);
-  border-color: var(--border-hover);
-  transform: translateY(-2px);
-}
-
-.hero-visual {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-/* Glassmorphic Project Info Widget */
-.hero-widget {
-  background: var(--surface);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid var(--border);
-  border-radius: 20px;
-  padding: 30px;
-  width: 100%;
-  max-width: 400px;
-  box-shadow: var(--shadow-md);
-  position: relative;
-  z-index: 2;
-  transform: perspective(1000px) rotateY(-10deg) rotateX(10deg);
-  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
-}
-
-.hero-widget:hover {
-  transform: perspective(1000px) rotateY(0deg) rotateX(0deg) scale(1.02);
-  box-shadow: var(--shadow-glow);
-}
-
-.widget-item {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  margin-bottom: 20px;
-}
-.widget-item:last-child {
-  margin-bottom: 0;
-}
-
-.widget-icon {
-  width: 44px;
-  height: 44px;
-  border-radius: 12px;
-  background: var(--primary-glow);
+.contact-link:hover {
   color: var(--primary);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
 }
 
-.widget-text h4 {
-  font-size: 13px;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
+.contact-link svg {
+  width: 14px;
+  height: 14px;
+  stroke-width: 2;
   color: var(--ink-subtle);
-  font-weight: 600;
 }
 
-.widget-text p {
-  font-size: 15px;
-  font-weight: 700;
-  color: var(--ink);
+.contact-link:hover svg {
+  color: var(--primary);
 }
 
-/* ── STICKY GLASS NAVIGATION ── */
-.nav-outer {
+.hero-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.hero-tag {
+  font-size: 12px;
+  font-weight: 500;
+  padding: 5px 12px;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  background-color: var(--surface);
+  color: var(--ink-muted);
+}
+
+/* ── STICKY NAVIGATION ── */
+.nav-wrapper {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(11, 12, 16, 0.65);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background-color: rgba(249, 248, 245, 0.9);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--border);
-  transition: background var(--transition-normal), border-color var(--transition-normal);
-}
-
-[data-theme="light"] .nav-outer {
-  background: rgba(248, 250, 252, 0.75);
 }
 
 .nav-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 64px;
+  height: 56px;
 }
 
 .nav-logo {
   font-family: var(--font-serif);
-  font-size: 22px;
+  font-size: 20px;
   text-decoration: none;
   color: var(--ink);
-  font-weight: 400;
-  display: flex;
-  align-items: center;
-  gap: 8px;
 }
 .nav-logo span {
   color: var(--primary);
@@ -482,50 +250,45 @@ body {
   display: flex;
   gap: 4px;
   overflow-x: auto;
-  max-width: 75%;
-}
-
-/* Hide scrollbar for nav menu */
-.nav-menu::-webkit-scrollbar {
-  display: none;
-}
-.nav-menu {
+  max-width: 80%;
   -ms-overflow-style: none;
   scrollbar-width: none;
+}
+.nav-menu::-webkit-scrollbar {
+  display: none;
 }
 
 .nav-link {
   font-size: 13px;
-  font-weight: 600;
+  font-weight: 500;
   color: var(--ink-muted);
   text-decoration: none;
-  padding: 8px 14px;
-  border-radius: 6px;
+  padding: 6px 12px;
+  border-radius: 4px;
   white-space: nowrap;
   transition: all var(--transition-fast);
 }
 
 .nav-link:hover, .nav-link.active {
   color: var(--primary);
-  background: var(--primary-glow);
+  background-color: var(--primary-light);
 }
 
-/* ── MAIN CONTENT ── */
+/* ── GENERAL SECTIONS ── */
 .section {
-  padding: 80px 0;
+  padding: 70px 0;
   border-bottom: 1px solid var(--border);
 }
 .section:last-of-type {
   border-bottom: none;
 }
 
-.section-hd-wrap {
-  margin-bottom: 48px;
-  position: relative;
+.section-header {
+  margin-bottom: 36px;
 }
 
 .section-eyebrow {
-  font-size: 11px;
+  font-size: 10px;
   font-weight: 700;
   letter-spacing: 0.15em;
   text-transform: uppercase;
@@ -536,47 +299,35 @@ body {
 
 .section-title {
   font-family: var(--font-serif);
-  font-size: clamp(28px, 4vw, 38px);
-  color: var(--ink);
+  font-size: clamp(26px, 3.8vw, 34px);
   font-weight: 400;
-  line-height: 1.2;
+  color: var(--ink);
 }
 
-/* ── REVEAL ON SCROLL ANIMATION ── */
+/* ── REVEAL ON SCROLL ── */
 .reveal {
   opacity: 0;
-  transform: translateY(30px);
-  transition: opacity var(--transition-slow), transform var(--transition-slow);
+  transform: translateY(20px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
 }
 .reveal.active {
   opacity: 1;
   transform: translateY(0);
 }
 
-/* ── EXECUTIVE SUMMARY / COUNTERS ── */
-.summary-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 36px;
-}
-
+/* ── EXECUTIVE SUMMARY ── */
 .summary-card {
-  background: var(--surface);
+  background-color: var(--surface);
   border: 1px solid var(--border);
-  border-radius: 16px;
-  padding: 36px;
+  border-radius: 12px;
+  padding: 32px;
   box-shadow: var(--shadow-sm);
-  transition: border-color var(--transition-normal);
-}
-
-.summary-card:hover {
-  border-color: var(--border-hover);
 }
 
 .summary-text {
-  font-size: 16px;
+  font-size: 15px;
   color: var(--ink-muted);
-  line-height: 1.85;
+  line-height: 1.8;
 }
 .summary-text strong {
   color: var(--ink);
@@ -585,61 +336,47 @@ body {
 
 .stats-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
-  gap: 16px;
-  margin-top: 36px;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 12px;
+  margin-top: 32px;
 }
 
 .stat-box {
-  background: var(--surface-solid);
+  background-color: var(--bg);
   border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 24px 20px;
+  border-radius: 8px;
+  padding: 20px 16px;
   text-align: center;
-  position: relative;
-  overflow: hidden;
   transition: transform var(--transition-fast), border-color var(--transition-fast);
 }
 
-.stat-box::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; width: 100%; height: 4px;
-  background: var(--primary);
-  opacity: 0;
-  transition: opacity var(--transition-fast);
-}
-
 .stat-box:hover {
-  transform: translateY(-5px);
+  transform: translateY(-2px);
   border-color: var(--primary);
-}
-.stat-box:hover::before {
-  opacity: 1;
 }
 
 .stat-num {
   font-family: var(--font-serif);
-  font-size: clamp(28px, 3.5vw, 36px);
+  font-size: clamp(26px, 3vw, 32px);
   color: var(--primary);
   display: block;
-  margin-bottom: 4px;
   font-weight: 400;
+  margin-bottom: 2px;
 }
 
 .stat-lbl {
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 600;
-  color: var(--ink-muted);
+  color: var(--ink-subtle);
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
 
-/* ── PROFILE & METHODOLOGIES ── */
+/* ── PROFESSIONAL STYLE / ACCORDION ── */
 .profile-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 20px;
+  gap: 16px;
 }
 
 @media (max-width: 768px) {
@@ -649,149 +386,142 @@ body {
 }
 
 .profile-card {
-  background: var(--surface);
+  background-color: var(--surface);
   border: 1px solid var(--border);
-  border-radius: 14px;
-  padding: 28px;
+  border-radius: 10px;
+  padding: 24px;
   box-shadow: var(--shadow-sm);
-  transition: transform var(--transition-normal), border-color var(--transition-normal);
-}
-
-.profile-card:hover {
-  border-color: var(--border-hover);
-  transform: translateY(-2px);
 }
 
 .profile-card h3 {
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 700;
   color: var(--ink);
-  margin-bottom: 16px;
+  margin-bottom: 12px;
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
 }
 
-.profile-card h3 .icon-dot {
-  width: 8px;
-  height: 8px;
+.profile-card h3::before {
+  content: '';
+  width: 6px;
+  height: 6px;
   border-radius: 50%;
-  background: var(--primary);
-  box-shadow: 0 0 10px var(--primary);
+  background-color: var(--primary);
+  display: inline-block;
 }
 
 .profile-card p, .profile-card li {
-  font-size: 14px;
+  font-size: 13.5px;
   color: var(--ink-muted);
-  line-height: 1.7;
 }
 
 .profile-card ul {
-  padding-left: 20px;
   list-style: none;
 }
 
 .profile-card li {
   position: relative;
-  margin-bottom: 10px;
+  padding-left: 18px;
+  margin-bottom: 8px;
 }
 .profile-card li:last-child {
   margin-bottom: 0;
 }
 
 .profile-card li::before {
-  content: "✦";
+  content: '→';
   position: absolute;
-  left: -20px;
-  color: var(--primary);
-  font-size: 11px;
+  left: 0;
+  color: var(--ink-subtle);
+  font-size: 12px;
 }
 
 .method-pills {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 16px;
+  gap: 6px;
+  margin-top: 12px;
 }
 
 .pill {
   font-size: 11px;
-  font-weight: 700;
-  padding: 6px 12px;
-  border-radius: 20px;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 12px;
+  letter-spacing: 0.02em;
 }
-.pill.purple { background: var(--pill-bg-purple); color: var(--pill-color-purple); }
-.pill.blue   { background: var(--pill-bg-blue);   color: var(--pill-color-blue); }
-.pill.teal   { background: var(--pill-bg-teal);   color: var(--pill-color-teal); }
-.pill.gray   { background: var(--pill-bg-gray);   color: var(--pill-color-gray); }
-.pill.amber  { background: var(--pill-bg-amber);  color: var(--pill-color-amber); }
-.pill.green  { background: var(--pill-bg-green);  color: var(--pill-color-green); }
+.pill.purple { background-color: var(--purple-light); color: var(--purple); }
+.pill.blue   { background-color: var(--blue-light);   color: var(--blue); }
+.pill.teal   { background-color: var(--primary-light);   color: var(--primary); }
+.pill.gray   { background-color: var(--gray-light);   color: var(--gray); }
+.pill.amber  { background-color: var(--amber-light);  color: var(--amber); }
+.pill.green  { background-color: var(--green-light);  color: var(--green); }
 
-/* ── SKILLS SECTION (FILTERABLE) ── */
-.filter-container {
+/* ── FILTERABLE SKILLS ── */
+.filter-tabs {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
-  margin-bottom: 30px;
+  gap: 6px;
+  margin-bottom: 24px;
 }
 
 .filter-btn {
-  background: var(--surface);
+  background-color: var(--surface);
   border: 1px solid var(--border);
   color: var(--ink-muted);
-  padding: 8px 18px;
-  border-radius: 30px;
-  font-size: 13px;
-  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: 4px;
+  font-size: 12.5px;
+  font-weight: 500;
   cursor: pointer;
   transition: all var(--transition-fast);
 }
 
 .filter-btn:hover, .filter-btn.active {
-  background: var(--primary);
-  color: #ffffff;
+  background-color: var(--primary);
   border-color: var(--primary);
-  box-shadow: var(--shadow-glow);
+  color: #ffffff;
 }
 
 .skills-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  gap: 16px;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 12px;
 }
 
 .skill-card {
-  background: var(--surface);
+  background-color: var(--surface);
   border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 24px;
+  border-radius: 8px;
+  padding: 20px;
   box-shadow: var(--shadow-sm);
   transition: all var(--transition-normal);
 }
 
 .skill-card:hover {
-  transform: translateY(-4px);
   border-color: var(--primary);
-  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
 }
 
 .skill-card.hidden {
   opacity: 0;
-  transform: scale(0.9);
+  transform: scale(0.95);
   pointer-events: none;
   position: absolute;
   width: 0; height: 0; padding: 0; margin: 0; border: none; overflow: hidden;
 }
 
 .skill-card h3 {
-  font-size: 13px;
-  font-weight: 800;
-  color: var(--primary);
-  margin-bottom: 16px;
-  letter-spacing: 0.1em;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
+  color: var(--primary);
+  margin-bottom: 12px;
+  border-bottom: 1px solid var(--bg);
+  padding-bottom: 8px;
 }
 
 .skill-card ul {
@@ -799,102 +529,96 @@ body {
 }
 
 .skill-card li {
-  font-size: 14px;
+  font-size: 13px;
   color: var(--ink-muted);
-  padding: 8px 0;
-  border-bottom: 1px solid var(--border);
+  padding: 5px 0;
   display: flex;
   align-items: center;
-  gap: 10px;
-}
-.skill-card li:last-child {
-  border-bottom: none;
+  gap: 8px;
 }
 
 .skill-card li::before {
   content: '';
-  width: 5px;
-  height: 5px;
+  width: 4px;
+  height: 4px;
   border-radius: 50%;
-  background: var(--info);
+  background-color: var(--primary);
   flex-shrink: 0;
 }
 
-/* ── CERTIFICATIONS ── */
+/* ── CREDENTIALS ── */
 .cert-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  gap: 12px;
 }
 
 .cert-card {
-  background: var(--surface);
+  background-color: var(--surface);
   border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 20px;
+  border-radius: 8px;
+  padding: 16px;
   display: flex;
   align-items: center;
-  gap: 16px;
-  transition: all var(--transition-normal);
+  gap: 14px;
+  transition: border-color var(--transition-fast);
 }
 
 .cert-card:hover {
   border-color: var(--primary);
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-md);
 }
 
-.cert-icon {
-  width: 48px;
-  height: 48px;
-  border-radius: 10px;
+.cert-icon-box {
+  width: 40px;
+  height: 40px;
+  border-radius: 6px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
 }
 
-.cert-icon.pmp    { background: var(--pill-bg-blue);   color: var(--pill-color-blue); }
-.cert-icon.google { background: var(--pill-bg-teal);   color: var(--pill-color-teal); }
-.cert-icon.ibm    { background: var(--pill-bg-amber);  color: var(--pill-color-amber); }
-.cert-icon.ux     { background: var(--pill-bg-purple); color: var(--pill-color-purple); }
-.cert-icon.lang   { background: var(--pill-bg-gray);   color: var(--pill-color-gray); }
-.cert-icon.edu    { background: var(--pill-bg-green);  color: var(--pill-color-green); }
+.cert-icon-box.pmp    { background-color: var(--blue-light);   color: var(--blue); }
+.cert-icon-box.google { background-color: var(--primary-light);   color: var(--primary); }
+.cert-icon-box.ibm    { background-color: var(--amber-light);  color: var(--amber); }
+.cert-icon-box.ux     { background-color: var(--purple-light); color: var(--purple); }
+.cert-icon-box.lang   { background-color: var(--gray-light);   color: var(--gray); }
+.cert-icon-box.edu    { background-color: var(--green-light);  color: var(--green); }
 
-.cert-name {
-  font-size: 14px;
-  font-weight: 700;
+.cert-info h4 {
+  font-size: 13.5px;
+  font-weight: 600;
   color: var(--ink);
-  margin-bottom: 2px;
   line-height: 1.4;
 }
 
-.cert-year {
+.cert-info p {
   font-size: 12px;
-  color: var(--ink-muted);
+  color: var(--ink-subtle);
+  margin-top: 1px;
 }
 
-/* ── CASE STUDIES ── */
+/* ── CASE STUDIES (Clean Editorial Structure) ── */
 .case-card {
-  background: var(--surface);
+  background-color: var(--surface);
   border: 1px solid var(--border);
-  border-radius: 16px;
+  border-radius: 12px;
   overflow: hidden;
-  margin-bottom: 32px;
-  box-shadow: var(--shadow-md);
+  margin-bottom: 28px;
+  box-shadow: var(--shadow-sm);
 }
 .case-card:last-child {
   margin-bottom: 0;
 }
 
 .case-header {
-  background: var(--surface-solid);
-  padding: 28px;
+  background-color: var(--surface-secondary);
+  padding: 24px 28px;
   border-bottom: 1px solid var(--border);
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  gap: 20px;
+  gap: 16px;
 }
 
 @media (max-width: 768px) {
@@ -903,36 +627,40 @@ body {
   }
 }
 
-.case-company {
-  font-size: 12px;
+.case-top-left {
+  flex: 1;
+}
+
+.case-client {
+  font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--primary);
+  color: var(--ink-subtle);
+  margin-bottom: 4px;
+}
+
+.case-card-title {
+  font-family: var(--font-serif);
+  font-size: 22px;
+  font-weight: 400;
+  color: var(--ink);
   margin-bottom: 6px;
 }
 
-.case-title {
-  font-family: var(--font-serif);
-  font-size: 24px;
-  color: var(--ink);
-  margin-bottom: 8px;
-  font-weight: 400;
-}
-
-.case-meta {
-  font-size: 13px;
+.case-card-meta {
+  font-size: 12.5px;
   color: var(--ink-muted);
 }
 
-.case-badge {
+.case-tag-badge {
   font-size: 11px;
-  font-weight: 700;
-  padding: 6px 14px;
-  border-radius: 30px;
-  background: var(--primary-glow);
+  font-weight: 600;
+  padding: 5px 12px;
+  border-radius: 20px;
+  background-color: var(--primary-light);
   color: var(--primary);
-  border: 1px solid var(--primary);
+  border: 1px solid rgba(15, 110, 86, 0.2);
   white-space: nowrap;
 }
 
@@ -940,21 +668,20 @@ body {
   padding: 28px;
 }
 
-/* CAR Switcher tabs */
 .car-tabs {
   display: flex;
   border-bottom: 1px solid var(--border);
-  margin-bottom: 24px;
-  gap: 8px;
+  margin-bottom: 20px;
+  gap: 4px;
 }
 
 .car-tab-btn {
   background: none;
   border: none;
-  color: var(--ink-muted);
-  font-size: 13px;
-  font-weight: 700;
-  padding: 10px 16px;
+  color: var(--ink-subtle);
+  font-size: 12.5px;
+  font-weight: 600;
+  padding: 8px 16px;
   cursor: pointer;
   position: relative;
   text-transform: uppercase;
@@ -969,7 +696,7 @@ body {
   left: 0;
   width: 100%;
   height: 2px;
-  background: var(--primary);
+  background-color: var(--primary);
   transform: scaleX(0);
   transition: transform var(--transition-fast);
 }
@@ -982,61 +709,61 @@ body {
   transform: scaleX(1);
 }
 
-.car-content {
+.car-pane {
   display: none;
-  animation: fade-in var(--transition-normal) forwards;
+  animation: tab-fade-in 0.25s forwards;
 }
 
-.car-content.active {
+.car-pane.active {
   display: block;
 }
 
-@keyframes fade-in {
-  from { opacity: 0; transform: translateY(10px); }
+@keyframes tab-fade-in {
+  from { opacity: 0; transform: translateY(4px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
-.car-pane-grid {
+.car-grid {
   display: grid;
   grid-template-columns: 1.2fr 0.8fr;
-  gap: 28px;
+  gap: 24px;
 }
 
 @media (max-width: 768px) {
-  .car-pane-grid {
+  .car-grid {
     grid-template-columns: 1fr;
   }
 }
 
-.car-desc h4 {
-  font-size: 15px;
+.car-col h4 {
+  font-size: 13px;
   font-weight: 700;
-  color: var(--ink);
-  margin-bottom: 12px;
   text-transform: uppercase;
   letter-spacing: 0.05em;
+  color: var(--ink);
+  margin-bottom: 10px;
 }
 
-.car-desc p {
-  font-size: 15px;
+.car-col p {
+  font-size: 14px;
   color: var(--ink-muted);
-  line-height: 1.75;
+  line-height: 1.7;
 }
 
-.car-list {
+.car-bullet-list {
   list-style: none;
 }
 
-.car-list li {
+.car-bullet-list li {
   position: relative;
-  padding-left: 24px;
-  margin-bottom: 12px;
-  font-size: 14px;
+  padding-left: 20px;
+  margin-bottom: 10px;
+  font-size: 13.5px;
   color: var(--ink-muted);
   line-height: 1.6;
 }
 
-.car-list li::before {
+.car-bullet-list li::before {
   content: '→';
   position: absolute;
   left: 0;
@@ -1044,179 +771,150 @@ body {
   font-weight: bold;
 }
 
-/* Process Flow Interactive Diagram */
-.process-box {
-  background: var(--surface-solid);
+/* Minimal Swimlane Process Diagram */
+.process-wrapper {
+  background-color: var(--bg);
   border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 24px;
-  margin-top: 16px;
+  border-radius: 8px;
+  padding: 20px;
 }
 
-.track-title {
-  font-size: 11px;
-  font-weight: 800;
+.process-track-name {
+  font-size: 10px;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
   color: var(--primary);
+  margin-bottom: 12px;
+}
+
+.process-steps-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  overflow-x: auto;
+  padding-bottom: 8px;
   margin-bottom: 16px;
 }
 
-.flow-steps {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  overflow-x: auto;
-  padding-bottom: 12px;
-}
-
-.flow-step {
+.process-node {
   flex: 1;
-  min-width: 110px;
-  background: var(--surface);
+  min-width: 100px;
+  background-color: var(--surface);
   border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 12px;
+  border-radius: 6px;
+  padding: 10px;
   text-align: center;
   cursor: pointer;
   transition: all var(--transition-fast);
 }
 
-.flow-step:hover, .flow-step.active {
+.process-node:hover, .process-node.active {
   border-color: var(--primary);
-  background: var(--primary-glow);
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-sm);
+  background-color: var(--primary-light);
 }
 
-.flow-step.active {
-  box-shadow: 0 0 12px rgba(99, 102, 241, 0.2);
-}
-
-.flow-step-num {
-  font-size: 10px;
-  font-weight: 700;
+.process-node-num {
+  font-size: 9px;
+  font-weight: 600;
   color: var(--ink-subtle);
   text-transform: uppercase;
 }
 
-.flow-step.active .flow-step-num {
-  color: var(--primary);
-}
-
-.flow-step-name {
-  font-size: 12px;
-  font-weight: 700;
+.process-node-title {
+  font-size: 11.5px;
+  font-weight: 600;
   color: var(--ink);
-  margin-top: 2px;
+  margin-top: 1px;
 }
 
-.flow-arrow {
-  color: var(--border-hover);
-  font-weight: bold;
+.process-arrow {
+  color: var(--border);
+  font-size: 12px;
   flex-shrink: 0;
 }
 
-/* Process interactive detail box */
-.flow-details-box {
-  margin-top: 16px;
-  background: var(--surface);
+.process-details-pane {
+  background-color: var(--surface);
   border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 16px;
-  min-height: 80px;
+  border-radius: 6px;
+  padding: 14px 16px;
   border-left: 3px solid var(--primary);
 }
 
-.flow-details-title {
-  font-size: 13px;
+.process-details-title {
+  font-size: 12.5px;
   font-weight: 700;
   color: var(--ink);
-  margin-bottom: 6px;
+  margin-bottom: 4px;
 }
 
-.flow-details-text {
-  font-size: 13px;
+.process-details-text {
+  font-size: 12.5px;
   color: var(--ink-muted);
 }
 
 /* ── TESTIMONIALS SLIDER ── */
-.testimonials-wrapper {
+.slider-container {
   position: relative;
-  max-width: 800px;
+  max-width: 750px;
   margin: 0 auto;
   overflow: hidden;
 }
 
-.testimonial-track {
+.slider-track {
   display: flex;
-  transition: transform var(--transition-slow) ease;
+  transition: transform var(--transition-normal) ease;
 }
 
-.testimonial-slide {
+.slider-slide {
   min-width: 100%;
-  padding: 10px;
 }
 
 .testimonial-card {
-  background: var(--surface);
+  background-color: var(--surface);
   border: 1px solid var(--border);
-  border-left: 4px solid var(--primary);
-  border-radius: 0 16px 16px 0;
-  padding: 36px;
-  box-shadow: var(--shadow-md);
-}
-
-.testimonial-quote {
-  font-size: 16px;
-  line-height: 1.8;
-  color: var(--ink);
-  font-style: italic;
-  margin-bottom: 24px;
+  border-top: 3px solid var(--primary);
+  border-radius: 8px;
+  padding: 32px;
+  box-shadow: var(--shadow-sm);
   position: relative;
 }
 
-.testimonial-quote::before {
-  content: '“';
-  font-size: 80px;
-  color: var(--primary-glow);
-  position: absolute;
-  top: -40px;
-  left: -20px;
-  font-family: Georgia, serif;
+.testimonial-quote {
+  font-family: var(--font-italic);
+  font-style: italic;
+  font-size: clamp(15px, 1.8vw, 17px);
+  line-height: 1.75;
+  color: var(--ink);
+  margin-bottom: 20px;
 }
 
-.testimonial-author {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.author-info h4 {
-  font-size: 14px;
+.testimonial-author-name {
+  font-size: 13px;
   font-weight: 700;
   color: var(--ink);
 }
 
-.author-info p {
-  font-size: 12px;
-  color: var(--ink-muted);
+.testimonial-author-title {
+  font-size: 11.5px;
+  color: var(--ink-subtle);
 }
 
-.testimonial-controls {
+.slider-nav {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 16px;
-  margin-top: 24px;
+  gap: 14px;
+  margin-top: 20px;
 }
 
-.slider-btn {
-  background: var(--surface);
+.slider-nav-btn {
+  background-color: var(--surface);
   border: 1px solid var(--border);
   color: var(--ink);
-  width: 40px;
-  height: 40px;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
   cursor: pointer;
   display: flex;
@@ -1225,38 +923,37 @@ body {
   transition: all var(--transition-fast);
 }
 
-.slider-btn:hover {
-  background: var(--primary);
-  color: #ffffff;
+.slider-nav-btn:hover {
+  background-color: var(--primary);
   border-color: var(--primary);
-  box-shadow: var(--shadow-glow);
+  color: #ffffff;
 }
 
-.slider-dots {
+.slider-dot-indicators {
   display: flex;
-  gap: 8px;
+  gap: 6px;
 }
 
-.slider-dot {
-  width: 8px;
-  height: 8px;
+.slider-dot-item {
+  width: 6px;
+  height: 6px;
   border-radius: 50%;
-  background: var(--border-hover);
+  background-color: var(--border);
   cursor: pointer;
-  transition: background var(--transition-fast), width var(--transition-fast);
+  transition: all var(--transition-fast);
 }
 
-.slider-dot.active {
-  background: var(--primary);
-  width: 24px;
-  border-radius: 4px;
+.slider-dot-item.active {
+  background-color: var(--primary);
+  width: 16px;
+  border-radius: 3px;
 }
 
-/* ── AWARDS SECTION ── */
+/* ── AWARDS ── */
 .awards-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 16px;
+  gap: 12px;
 }
 
 @media (max-width: 768px) {
@@ -1266,27 +963,25 @@ body {
 }
 
 .award-card {
-  background: var(--surface);
+  background-color: var(--surface);
   border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 20px;
+  border-radius: 8px;
+  padding: 18px;
   display: flex;
   align-items: flex-start;
-  gap: 16px;
-  transition: all var(--transition-normal);
+  gap: 14px;
+  transition: border-color var(--transition-fast);
 }
 
 .award-card:hover {
   border-color: var(--primary);
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-md);
 }
 
-.award-icon-box {
-  width: 40px;
-  height: 40px;
-  border-radius: 8px;
-  background: var(--amber-glow);
+.award-icon-wrapper {
+  width: 36px;
+  height: 36px;
+  border-radius: 6px;
+  background-color: var(--amber-light);
   color: var(--amber);
   display: flex;
   align-items: center;
@@ -1294,100 +989,99 @@ body {
   flex-shrink: 0;
 }
 
-.award-info h4 {
-  font-size: 14px;
-  font-weight: 700;
+.award-details h4 {
+  font-size: 13.5px;
+  font-weight: 600;
   color: var(--ink);
-  margin-bottom: 4px;
+  margin-bottom: 2px;
 }
 
-.award-info p {
+.award-details p {
   font-size: 12px;
   color: var(--ink-muted);
 }
 
-/* ── CONTACT & INTERACTIVE BUILDER ── */
+/* ── CONTACT & INTERACTIVE MESSAGE BUILDER ── */
 .contact-section {
-  background: var(--surface-solid);
-  padding: 80px 0;
-  border-radius: 24px 24px 0 0;
+  background-color: var(--surface-secondary);
   border-top: 1px solid var(--border);
+  padding: 80px 0;
 }
 
-.contact-grid {
+.contact-layout {
   display: grid;
-  grid-template-columns: 0.8fr 1.2fr;
-  gap: 48px;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 40px;
 }
 
-@media (max-width: 991px) {
-  .contact-grid {
+@media (max-width: 850px) {
+  .contact-layout {
     grid-template-columns: 1fr;
-    gap: 36px;
+    gap: 32px;
   }
 }
 
-.contact-info h2 {
+.contact-details-col h2 {
   font-family: var(--font-serif);
-  font-size: 36px;
-  color: var(--ink);
-  margin-bottom: 12px;
+  font-size: 34px;
   font-weight: 400;
+  color: var(--ink);
+  margin-bottom: 8px;
 }
 
-.contact-info p {
-  font-size: 15px;
+.contact-details-col p {
+  font-size: 14.5px;
   color: var(--ink-muted);
-  margin-bottom: 28px;
+  margin-bottom: 24px;
 }
 
-.availability-badge {
+.availability-pill {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  background: rgba(16, 185, 129, 0.1);
-  border: 1px solid var(--success);
-  color: var(--pill-color-green);
-  padding: 6px 14px;
-  border-radius: 30px;
-  font-size: 13px;
-  font-weight: 700;
-  margin-bottom: 30px;
+  gap: 6px;
+  background-color: var(--green-light);
+  border: 1px solid rgba(59, 109, 17, 0.2);
+  color: var(--green);
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 24px;
 }
 
-.availability-badge::before {
+.availability-pill::before {
   content: '';
-  width: 6px;
-  height: 6px;
+  width: 5px;
+  height: 5px;
   border-radius: 50%;
-  background: var(--success);
+  background-color: var(--green);
 }
 
-.contact-list {
+.contact-links-list {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 12px;
 }
 
-.contact-item {
+.contact-link-row {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 12px;
   color: var(--ink-muted);
   text-decoration: none;
-  font-size: 15px;
+  font-size: 14px;
   transition: color var(--transition-fast);
 }
 
-.contact-item:hover {
+.contact-link-row:hover {
   color: var(--primary);
 }
 
-.contact-item-icon {
-  width: 40px;
-  height: 40px;
+.contact-icon-shell {
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
-  background: var(--surface);
+  background-color: var(--surface);
   border: 1px solid var(--border);
   display: flex;
   align-items: center;
@@ -1396,885 +1090,854 @@ body {
   transition: all var(--transition-fast);
 }
 
-.contact-item:hover .contact-item-icon {
+.contact-link-row:hover .contact-icon-shell {
   border-color: var(--primary);
-  background: var(--primary-glow);
+  background-color: var(--primary-light);
   color: var(--primary);
 }
 
-/* Custom Message Builder Form */
-.message-builder {
-  background: var(--surface);
+/* Minimal Message Builder Form */
+.msg-builder-box {
+  background-color: var(--surface);
   border: 1px solid var(--border);
-  border-radius: 16px;
-  padding: 30px;
-  box-shadow: var(--shadow-md);
+  border-radius: 10px;
+  padding: 28px;
+  box-shadow: var(--shadow-sm);
 }
 
-.builder-title {
-  font-size: 16px;
+.builder-header {
+  font-size: 15px;
   font-weight: 700;
   color: var(--ink);
-  margin-bottom: 20px;
+  margin-bottom: 16px;
 }
 
-.intent-labels {
+.builder-intent-selectors {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
-  margin-bottom: 20px;
+  gap: 6px;
+  margin-bottom: 18px;
 }
 
-.intent-btn {
-  background: var(--surface-solid);
+.intent-selector-btn {
+  background-color: var(--bg);
   border: 1px solid var(--border);
   color: var(--ink-muted);
   padding: 6px 12px;
-  border-radius: 6px;
-  font-size: 12px;
+  border-radius: 4px;
+  font-size: 11.5px;
   font-weight: 600;
   cursor: pointer;
   transition: all var(--transition-fast);
 }
 
-.intent-btn:hover, .intent-btn.active {
+.intent-selector-btn:hover, .intent-selector-btn.active {
   border-color: var(--primary);
   color: var(--primary);
-  background: var(--primary-glow);
+  background-color: var(--primary-light);
 }
 
-.form-group {
-  margin-bottom: 16px;
+.form-field-group {
+  margin-bottom: 14px;
 }
 
-.form-group label {
+.form-field-group label {
   display: block;
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 700;
-  color: var(--ink-muted);
+  color: var(--ink-subtle);
   text-transform: uppercase;
-  margin-bottom: 6px;
+  margin-bottom: 4px;
 }
 
-.form-control {
+.form-input-element {
   width: 100%;
-  background: var(--surface-solid);
+  background-color: var(--bg);
   border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 12px;
+  border-radius: 6px;
+  padding: 10px 12px;
   color: var(--ink);
   font-family: var(--font-sans);
-  font-size: 14px;
+  font-size: 13.5px;
   transition: border-color var(--transition-fast);
 }
 
-.form-control:focus {
+.form-input-element:focus {
   outline: none;
   border-color: var(--primary);
 }
 
-textarea.form-control {
+textarea.form-input-element {
   resize: vertical;
-  min-height: 120px;
+  min-height: 100px;
+}
+
+.submit-btn-row {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 10px;
+  border-radius: 6px;
+  background-color: var(--primary);
+  color: #ffffff;
+  border: none;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color var(--transition-fast);
+}
+
+.submit-btn-row:hover {
+  background-color: var(--primary-hover);
 }
 
 /* ── FOOTER ── */
 footer {
-  background: #08090c;
+  background-color: #f1efe8;
   color: var(--ink-subtle);
-  padding: 40px 0;
+  padding: 30px 0;
   text-align: center;
-  font-size: 13px;
+  font-size: 12.5px;
   border-top: 1px solid var(--border);
-}
-
-[data-theme="light"] footer {
-  background: #f1f5f9;
 }
 </style>
 </head>
 <body>
 
-  <!-- SCROLL PROGRESS -->
-  <div class="scroll-progress-bar" id="scrollProgress"></div>
+  <!-- SCROLL PROGRESS INDICATOR -->
+  <div class="scroll-progress" id="scrollProgress"></div>
 
-  <!-- THEME TOGGLER -->
-  <button class="theme-toggle-btn" id="themeToggler" aria-label="Toggle theme">
-    <!-- Sun icon for light mode -->
-    <svg class="sun-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-    <!-- Moon icon for dark mode -->
-    <svg class="moon-icon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-  </button>
-
-  <div class="glow-wrapper">
-    <!-- GLOWING BACKGROUND ORBS -->
-    <div class="glow-orb glow-orb-1"></div>
-    <div class="glow-orb glow-orb-2"></div>
-    <div class="glow-orb glow-orb-3"></div>
-
-    <!-- 1. HERO SECTION -->
-    <section class="hero" id="hero">
-      <div class="container">
-        <div class="hero-grid">
-          <div class="hero-content">
-            <div class="badge-wrapper">
-              <span class="pmp-badge">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                PMP® CERTIFIED PM
-              </span>
-            </div>
-            <h1 class="hero-title">Ha Ngo <span>(Hazel)</span></h1>
-            <p class="hero-subtitle">IT Project Manager</p>
-            <p class="hero-tagline">"Delivering strategic projects with precision, leadership, and measurable business impact."</p>
-            <div class="hero-buttons">
-              <a href="#contact" class="btn btn-primary">
-                Contact Me
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-              </a>
-              <a href="#cases" class="btn btn-secondary">View Case Studies</a>
-            </div>
-          </div>
-          <div class="hero-visual">
-            <div class="hero-widget">
-              <div class="widget-item">
-                <div class="widget-icon">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                </div>
-                <div class="widget-text">
-                  <h4>Experience</h4>
-                  <p>3+ Years IT Delivery</p>
-                </div>
-              </div>
-              <div class="widget-item">
-                <div class="widget-icon">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-                </div>
-                <div class="widget-text">
-                  <h4>Delivery Rate</h4>
-                  <p>98% On-Time</p>
-                </div>
-              </div>
-              <div class="widget-item">
-                <div class="widget-icon">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-                </div>
-                <div class="widget-text">
-                  <h4>Scope</h4>
-                  <p>EMEA / APAC Programmes</p>
-                </div>
-              </div>
-            </div>
-          </div>
+  <!-- 1. HERO COVER -->
+  <section class="hero" id="hero">
+    <div class="container">
+      <div class="hero-layout">
+        <p class="hero-eyebrow">Project Manager Portfolio</p>
+        <h1 class="hero-title">Ha Ngo <span>(Hazel)</span></h1>
+        <p class="hero-subtitle">PMP® Certified Project Manager <span class="bullet"></span> IT Delivery Specialist</p>
+        <p class="hero-tagline">"Delivering strategic projects with precision, leadership, and measurable business impact."</p>
+        
+        <div class="hero-contact">
+          <a href="tel:+840373247478" class="contact-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.1 19.79 19.79 0 0 1 1.61 4.5C1.6 3.44 2.35 2.57 3.4 2.39L6.4 2a2 2 0 0 1 2 1.22l1.35 3.34a2 2 0 0 1-.45 2.11L8 10a16 16 0 0 0 6 6l1.33-1.3a2 2 0 0 1 2.11-.45l3.34 1.35a2 2 0 0 1 1.22 2z"/></svg>
+            0373 247 478
+          </a>
+          <a href="mailto:hoanghango1912@gmail.com" class="contact-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            hoanghango1912@gmail.com
+          </a>
+          <a href="https://linkedin.com/in/hoanghango" target="_blank" class="contact-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            linkedin.com/in/hoanghango
+          </a>
         </div>
-      </div>
-    </section>
 
-    <!-- STICKY HEADER NAVIGATION -->
-    <div class="nav-outer">
-      <div class="container nav-container">
-        <a href="#hero" class="nav-logo">Hazel<span>.</span></a>
-        <nav class="nav-menu" id="navMenu">
-          <a href="#summary" class="nav-link">Summary</a>
-          <a href="#profile" class="nav-link">Style</a>
-          <a href="#skills" class="nav-link">Skills</a>
-          <a href="#certs" class="nav-link">Credentials</a>
-          <a href="#cases" class="nav-link">Projects</a>
-          <a href="#testimonials" class="nav-link">Colleagues</a>
-          <a href="#contact" class="nav-link">Contact</a>
-        </nav>
+        <div class="hero-tags">
+          <span class="hero-tag">PMP® Certified</span>
+          <span class="hero-tag">Cloud Infrastructure</span>
+          <span class="hero-tag">Agile · Waterfall · Hybrid</span>
+          <span class="hero-tag">EMEA / APAC Programs</span>
+          <span class="hero-tag">IT Delivery · Software Products</span>
+        </div>
       </div>
     </div>
+  </section>
 
-    <!-- 2. EXECUTIVE SUMMARY -->
-    <section class="section reveal" id="summary">
-      <div class="container">
-        <div class="section-hd-wrap">
-          <span class="section-eyebrow">Executive Summary</span>
-          <h2 class="section-title">Career Overview</h2>
-        </div>
-        <div class="summary-grid">
-          <div class="summary-card">
-            <p class="summary-text">
-              Certified <strong>PMP Project Manager</strong> with 3+ years of hands-on experience leading complex IT delivery, cloud infrastructure, and software product initiatives across APAC and EMEA. I specialise in translating technical complexity into strategic, business-aligned outcomes — steering migrations from legacy infrastructure to modern cloud platforms, overseeing multi-track software development programmes, and driving cross-functional teams toward consistent on-time, on-budget delivery.<br><br>
-              My career spans global luxury retail transformation at <strong>Accenture</strong> and government technology programmes for the Singapore Government at <strong>Life Tech Vietnam</strong>, with a background in quality and R&D that underpins my structured, data-driven approach to project governance. I bring a hybrid methodology mindset — applying Agile sprint cycles where speed matters and Waterfall rigour where compliance and predictability are paramount.
-            </p>
-            <div class="stats-grid" id="statsGrid">
-              <div class="stat-box">
-                <span class="stat-num counter-value" data-target="3" data-suffix="+">0+</span>
-                <span class="stat-lbl">Years PM Exp</span>
-              </div>
-              <div class="stat-box">
-                <span class="stat-num counter-value" data-target="98" data-suffix="%">0%</span>
-                <span class="stat-lbl">On-Time rate</span>
-              </div>
-              <div class="stat-box">
-                <span class="stat-num counter-value" data-target="30" data-prefix="$" data-suffix="M+">0M+</span>
-                <span class="stat-lbl">Revenue Del.</span>
-              </div>
-              <div class="stat-box">
-                <span class="stat-num counter-value" data-target="50" data-suffix="+">0+</span>
-                <span class="stat-lbl">Apps Migrated</span>
-              </div>
-              <div class="stat-box">
-                <span class="stat-num counter-value" data-target="100" data-suffix="%">0%</span>
-                <span class="stat-lbl">Uptime rate</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 3. PROFESSIONAL PROFILE -->
-    <section class="section reveal" id="profile">
-      <div class="container">
-        <div class="section-hd-wrap">
-          <span class="section-eyebrow">Professional Profile</span>
-          <h2 class="section-title">Leadership Style &amp; Approach</h2>
-        </div>
-        <div class="profile-grid">
-          <div class="profile-card">
-            <h3><span class="icon-dot"></span>Leadership Style</h3>
-            <p>Collaborative and outcome-focused. I lead by building clarity — clear goals, clear owners, clear escalation paths. I invest early in stakeholder alignment and team structure so that execution stays smooth even when complexity scales. Comfortable managing multicultural, cross-functional teams across time zones and seniority levels.</p>
-          </div>
-          <div class="profile-card">
-            <h3><span class="icon-dot"></span>Project Methodologies</h3>
-            <p>Hybrid practitioner — I apply the right framework to the right context:</p>
-            <div class="method-pills">
-              <span class="pill purple">Agile / Scrum</span>
-              <span class="pill blue">Waterfall</span>
-              <span class="pill teal">Hybrid delivery</span>
-              <span class="pill amber">Kanban</span>
-              <span class="pill gray">PMBOK</span>
-            </div>
-          </div>
-          <div class="profile-card">
-            <h3><span class="icon-dot"></span>Industry Specialisation</h3>
-            <ul>
-              <li>Cloud infrastructure &amp; migration (Azure, GCC)</li>
-              <li>Enterprise IT delivery &amp; PMO</li>
-              <li>Government technology programmes</li>
-              <li>Global luxury retail transformation</li>
-              <li>Software product development</li>
-            </ul>
-          </div>
-          <div class="profile-card">
-            <h3><span class="icon-dot"></span>Management Approach</h3>
-            <ul>
-              <li>End-to-end lifecycle ownership</li>
-              <li>Proactive risk identification and mitigation</li>
-              <li>Executive steering committee facilitation</li>
-              <li>Vendor and cost optimisation</li>
-              <li>Change management and communication</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 4. SKILLS & COMPETENCIES (FILTERABLE) -->
-    <section class="section reveal" id="skills">
-      <div class="container">
-        <div class="section-hd-wrap">
-          <span class="section-eyebrow">Skills &amp; Competencies</span>
-          <h2 class="section-title">Core Areas of Expertise</h2>
-        </div>
-        
-        <div class="filter-container">
-          <button class="filter-btn active" data-filter="all">All Skills</button>
-          <button class="filter-btn" data-filter="governance">Governance &amp; PMO</button>
-          <button class="filter-btn" data-filter="risk">Risk &amp; Quality</button>
-          <button class="filter-btn" data-filter="delivery">Delivery</button>
-          <button class="filter-btn" data-filter="technical">Cloud &amp; IT</button>
-          <button class="filter-btn" data-filter="tools">Tools</button>
-        </div>
-
-        <div class="skills-grid" id="skillsGrid">
-          <div class="skill-card" data-category="governance">
-            <h3>Governance &amp; PMO</h3>
-            <ul>
-              <li>Project governance frameworks</li>
-              <li>PMO alignment &amp; reporting</li>
-              <li>Scope &amp; change control</li>
-              <li>RAID log management</li>
-            </ul>
-          </div>
-          <div class="skill-card" data-category="risk">
-            <h3>Risk &amp; Quality</h3>
-            <ul>
-              <li>Risk identification &amp; mitigation</li>
-              <li>Quality assurance planning</li>
-              <li>Issue escalation management</li>
-              <li>Root cause analysis</li>
-            </ul>
-          </div>
-          <div class="skill-card" data-category="governance">
-            <h3>Stakeholder &amp; Comms</h3>
-            <ul>
-              <li>Executive stakeholder management</li>
-              <li>Steering committee facilitation</li>
-              <li>Cross-cultural team leadership</li>
-              <li>Workshop facilitation</li>
-            </ul>
-          </div>
-          <div class="skill-card" data-category="delivery">
-            <h3>Delivery Frameworks</h3>
-            <ul>
-              <li>Agile sprint planning</li>
-              <li>Lean delivery practices</li>
-              <li>Waterfall project scheduling</li>
-              <li>Hybrid programme management</li>
-            </ul>
-          </div>
-          <div class="skill-card" data-category="technical">
-            <h3>Cloud &amp; IT</h3>
-            <ul>
-              <li>Cloud migration (Azure, GCC)</li>
-              <li>Infrastructure program management</li>
-              <li>Application modernisation</li>
-              <li>System performance tuning</li>
-            </ul>
-          </div>
-          <div class="skill-card" data-category="tools">
-            <h3>Collaboration Tools</h3>
-            <ul>
-              <li>Jira &amp; Confluence</li>
-              <li>Redmine</li>
-              <li>Microsoft Project</li>
-              <li>ServiceNow</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 5. CERTIFICATIONS & EDUCATION -->
-    <section class="section reveal" id="certs">
-      <div class="container">
-        <div class="section-hd-wrap">
-          <span class="section-eyebrow">Certifications &amp; Education</span>
-          <h2 class="section-title">Credentials</h2>
-        </div>
-        <div class="cert-grid">
-          <div class="cert-card">
-            <div class="cert-icon pmp">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
-            </div>
-            <div>
-              <p class="cert-name">Project Management Professional (PMP®)</p>
-              <p class="cert-year">PMI · 2026</p>
-            </div>
-          </div>
-          <div class="cert-card">
-            <div class="cert-icon google">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
-            </div>
-            <div>
-              <p class="cert-name">System Administration &amp; IT Infrastructure</p>
-              <p class="cert-year">Google · 2024</p>
-            </div>
-          </div>
-          <div class="cert-card">
-            <div class="cert-icon ibm">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-            </div>
-            <div>
-              <p class="cert-name">Web Development with HTML, CSS</p>
-              <p class="cert-year">IBM · 2024</p>
-            </div>
-          </div>
-          <div class="cert-card">
-            <div class="cert-icon ux">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
-            </div>
-            <div>
-              <p class="cert-name">Foundations of UX Design</p>
-              <p class="cert-year">Google · 2024</p>
-            </div>
-          </div>
-          <div class="cert-card">
-            <div class="cert-icon lang">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8l6 6"/><path d="M4 14l6-6 2-3"/><path d="M2 5h12"/><path d="M7 2h1"/><path d="M22 22l-5-10-5 10"/><path d="M14 18h6"/></svg>
-            </div>
-            <div>
-              <p class="cert-name">TOEIC 860 — English Proficiency</p>
-              <p class="cert-year">IIG Vietnam · 2020</p>
-            </div>
-          </div>
-          <div class="cert-card">
-            <div class="cert-icon edu">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
-            </div>
-            <div>
-              <p class="cert-name">Bachelor of Food Technology</p>
-              <p class="cert-year">HCMUTE · 2017–2021</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 6. FEATURED PROJECTS / CASE STUDIES -->
-    <section class="section reveal" id="cases">
-      <div class="container">
-        <div class="section-hd-wrap">
-          <span class="section-eyebrow">Project Case Studies</span>
-          <h2 class="section-title">Featured Projects</h2>
-        </div>
-
-        <!-- PROJECT 1 -->
-        <div class="case-card" id="project1">
-          <div class="case-header">
-            <div>
-              <p class="case-company">Accenture · Apr 2025 – Present</p>
-              <h3 class="case-title">Enterprise Cloud Transformation — On-Prem to Azure</h3>
-              <p class="case-meta">Global Luxury Retail Client &nbsp;·&nbsp; 10+ Engineers &nbsp;·&nbsp; 50+ Applications &nbsp;·&nbsp; EMEA / APAC</p>
-            </div>
-            <span class="case-badge">Cloud Migration</span>
-          </div>
-          
-          <div class="case-body">
-            <div class="car-tabs">
-              <button class="car-tab-btn active" data-tab="context-1">Context</button>
-              <button class="car-tab-btn" data-tab="actions-1">Actions</button>
-              <button class="car-tab-btn" data-tab="results-1">Results</button>
-              <button class="car-tab-btn" data-tab="process-1">Process Flow</button>
-            </div>
-
-            <!-- Tab content: Context -->
-            <div class="car-content active" id="context-1">
-              <div class="car-pane-grid">
-                <div class="car-desc">
-                  <h4>The Challenge</h4>
-                  <p>Led a large-scale cloud transformation initiative to migrate 50+ legacy on-premises applications to Microsoft Azure for a global luxury retail client. The programme required a long-term cloud strategy, tight vendor coordination, and zero tolerance for service disruption across EMEA and APAC operations.</p>
-                </div>
-                <div class="car-desc">
-                  <h4>Key Goals</h4>
-                  <ul class="car-list">
-                    <li>Maintain zero business disruption during migration.</li>
-                    <li>Consolidate vendor infrastructure dependencies.</li>
-                    <li>Optimize cloud consumption models.</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-
-            <!-- Tab content: Actions -->
-            <div class="car-content" id="actions-1">
-              <div class="car-pane-grid">
-                <div class="car-desc">
-                  <h4>My Leadership Playbook</h4>
-                  <p>Spearheaded end-to-end PMO governance, establishing cross-functional agile workstreams and steering steering committees to maintain schedule adherence.</p>
-                </div>
-                <div class="car-desc">
-                  <h4>Action Items</h4>
-                  <ul class="car-list">
-                    <li>Managed cross-functional team of 10+ engineers end-to-end.</li>
-                    <li>Defined application cloud-readiness profiles.</li>
-                    <li>Facilitated strategic workshops and root cause analysis with 10+ stakeholders.</li>
-                    <li>Implemented risk mitigation logs (RAID) and vendor SLA controls.</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-
-            <!-- Tab content: Results -->
-            <div class="car-content" id="results-1">
-              <div class="car-pane-grid">
-                <div class="car-desc">
-                  <h4>Business Outcomes</h4>
-                  <p>Delivered exceptional project performance indicators, successfully modernizing legacy apps while delivering massive cost savings.</p>
-                </div>
-                <div class="car-desc">
-                  <h4>Metrics Delivered</h4>
-                  <ul class="car-list">
-                    <li>98% on-time project delivery rate over 12 months.</li>
-                    <li>$30M+ in revenue delivered to the client.</li>
-                    <li>30% reduction in vendor costs through efficiency.</li>
-                    <li>50+ applications successfully modernised on Azure.</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-
-            <!-- Tab content: Process -->
-            <div class="car-content" id="process-1">
-              <div class="process-box">
-                <p class="track-title">Azure Migration Pipeline (Interactive)</p>
-                <div class="flow-steps">
-                  <div class="flow-step active" data-flow="p1-s1">
-                    <span class="flow-step-num">Step 1</span>
-                    <p class="flow-step-name">On-prem Audit</p>
-                  </div>
-                  <div class="flow-arrow">→</div>
-                  <div class="flow-step" data-flow="p1-s2">
-                    <span class="flow-step-num">Step 2</span>
-                    <p class="flow-step-name">Assessment</p>
-                  </div>
-                  <div class="flow-arrow">→</div>
-                  <div class="flow-step" data-flow="p1-s3">
-                    <span class="flow-step-num">Step 3</span>
-                    <p class="flow-step-name">Planning</p>
-                  </div>
-                  <div class="flow-arrow">→</div>
-                  <div class="flow-step" data-flow="p1-s4">
-                    <span class="flow-step-num">Step 4</span>
-                    <p class="flow-step-name">Migration</p>
-                  </div>
-                  <div class="flow-arrow">→</div>
-                  <div class="flow-step" data-flow="p1-s5">
-                    <span class="flow-step-num">Step 5</span>
-                    <p class="flow-step-name">Azure Cloud</p>
-                  </div>
-                </div>
-                <div class="flow-details-box">
-                  <h4 class="flow-details-title" id="p1-details-title">On-prem Audit (Active)</h4>
-                  <p class="flow-details-text" id="p1-details-text">Audit of 50+ on-premises servers, resource utilization baseline mapping, and dependencies analysis.</p>
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-
-        <!-- PROJECT 2 -->
-        <div class="case-card" id="project2">
-          <div class="case-header">
-            <div>
-              <p class="case-company">Life Tech Vietnam · Mar 2023 – Mar 2025</p>
-              <h3 class="case-title">Software Development &amp; GCC Cloud Migration</h3>
-              <p class="case-meta">Singapore Government Client &nbsp;·&nbsp; 6+ Web Applications &nbsp;·&nbsp; 3 Workstreams</p>
-            </div>
-            <span class="case-badge">Software &amp; Migration</span>
-          </div>
-          
-          <div class="case-body">
-            <div class="car-tabs">
-              <button class="car-tab-btn active" data-tab="context-2">Context</button>
-              <button class="car-tab-btn" data-tab="actions-2">Actions</button>
-              <button class="car-tab-btn" data-tab="results-2">Results</button>
-              <button class="car-tab-btn" data-tab="process-2">Process Flow</button>
-            </div>
-
-            <!-- Tab content: Context -->
-            <div class="car-content active" id="context-2">
-              <div class="car-pane-grid">
-                <div class="car-desc">
-                  <h4>The Challenge</h4>
-                  <p>Coordinated two simultaneous programmes for a Singapore Government client: developing 8 new features within an existing web system, and migrating 6+ applications from legacy GCC1 cloud infrastructure to the new GCC2 environment — all while maintaining 100% service uptime.</p>
-                </div>
-                <div class="car-desc">
-                  <h4>Key Goals</h4>
-                  <ul class="car-list">
-                    <li>Maintain strict government compliance frameworks.</li>
-                    <li>Zero-downtime cutover between cloud environments.</li>
-                    <li>Coordinate independent feature releases.</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-
-            <!-- Tab content: Actions -->
-            <div class="car-content" id="actions-2">
-              <div class="car-pane-grid">
-                <div class="car-desc">
-                  <h4>My Leadership Playbook</h4>
-                  <p>Orchestrated simultaneous feature engineering and cloud operations, managing dependency mapping and release gates across government compliance barriers.</p>
-                </div>
-                <div class="car-desc">
-                  <h4>Action Items</h4>
-                  <ul class="car-list">
-                    <li>Coordinated three cross-functional workstreams simultaneously.</li>
-                    <li>Managed feature backlog and sprint delivery cycles.</li>
-                    <li>Executed weekend cutover schedules with granular runbooks.</li>
-                    <li>Managed GovTech engineering dependency matrix.</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-
-            <!-- Tab content: Results -->
-            <div class="car-content" id="results-2">
-              <div class="car-pane-grid">
-                <div class="car-desc">
-                  <h4>Business Outcomes</h4>
-                  <p>Sustained robust system health metrics throughout the high-pressure environment cutover.</p>
-                </div>
-                <div class="car-desc">
-                  <h4>Metrics Delivered</h4>
-                  <ul class="car-list">
-                    <li>100% uptime maintained throughout migration.</li>
-                    <li>40% reduction in system service disruptions.</li>
-                    <li>30% improvement in application load latency post-migration.</li>
-                    <li>All 8 client features delivered exactly on schedule.</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-
-            <!-- Tab content: Process -->
-            <div class="car-content" id="process-2">
-              <div class="process-box">
-                <p class="track-title">Government GCC Migration Pipeline (Interactive)</p>
-                <div class="flow-steps">
-                  <div class="flow-step active" data-flow="p2-s1">
-                    <span class="flow-step-num">Step 1</span>
-                    <p class="flow-step-name">GCC1 Audit</p>
-                  </div>
-                  <div class="flow-arrow">→</div>
-                  <div class="flow-step" data-flow="p2-s2">
-                    <span class="flow-step-num">Step 2</span>
-                    <p class="flow-step-name">Migration Prep</p>
-                  </div>
-                  <div class="flow-arrow">→</div>
-                  <div class="flow-step" data-flow="p2-s3">
-                    <span class="flow-step-num">Step 3</span>
-                    <p class="flow-step-name">Cutover Run</p>
-                  </div>
-                  <div class="flow-arrow">→</div>
-                  <div class="flow-step" data-flow="p2-s4">
-                    <span class="flow-step-num">Step 4</span>
-                    <p class="flow-step-name">GCC2 Live</p>
-                  </div>
-                </div>
-                <div class="flow-details-box">
-                  <h4 class="flow-details-title" id="p2-details-title">GCC1 Audit (Active)</h4>
-                  <p class="flow-details-text" id="p2-details-text">GCC1 cloud setup inventory, firewall & network rule auditing, GovTech compliance check.</p>
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- 7. TOOLS & OPERATIONAL TOOLKIT -->
-    <section class="section reveal" id="tools">
-      <div class="container">
-        <div class="section-hd-wrap">
-          <span class="section-eyebrow">Tools &amp; Templates</span>
-          <h2 class="section-title">Operational Toolkit</h2>
-        </div>
-        <div class="skills-grid">
-          <div class="skill-card">
-            <h3>Project Management</h3>
-            <ul>
-              <li>Jira</li>
-              <li>Confluence</li>
-              <li>Redmine</li>
-              <li>Microsoft Project</li>
-            </ul>
-          </div>
-          <div class="skill-card">
-            <h3>ITSM &amp; Governance</h3>
-            <ul>
-              <li>ServiceNow</li>
-              <li>RAID Log Management</li>
-              <li>Change Request Controls</li>
-            </ul>
-          </div>
-          <div class="skill-card">
-            <h3>Reporting Dashboards</h3>
-            <ul>
-              <li>Weekly / Monthly Status</li>
-              <li>Steering Committee Decks</li>
-              <li>EVM Trackers</li>
-            </ul>
-          </div>
-          <div class="skill-card">
-            <h3>Technical exposure</h3>
-            <ul>
-              <li>Microsoft Azure</li>
-              <li>GCC1 / GCC2 (GovTech)</li>
-              <li>Basic HTML &amp; CSS</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 8. TESTIMONIALS SLIDER -->
-    <section class="section reveal" id="testimonials">
-      <div class="container">
-        <div class="section-hd-wrap">
-          <span class="section-eyebrow">Testimonials</span>
-          <h2 class="section-title">What Colleagues Say</h2>
-        </div>
-
-        <div class="testimonials-wrapper">
-          <div class="testimonial-track" id="testimonialTrack">
-            <!-- Slide 1 -->
-            <div class="testimonial-slide">
-              <div class="testimonial-card">
-                <p class="testimonial-quote">Hazel consistently demonstrated the ability to manage competing priorities across multiple workstreams without losing sight of delivery quality. Her proactive approach to risk and her clear, structured communication made her an invaluable part of our programme.</p>
-                <div class="testimonial-author">
-                  <div class="author-info">
-                    <h4>Senior Programme Manager</h4>
-                    <p>Life Tech Vietnam</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- Slide 2 -->
-            <div class="testimonial-slide">
-              <div class="testimonial-card">
-                <p class="testimonial-quote">What sets Hazel apart is her ability to translate complex technical challenges into language that resonates with business stakeholders. She kept our cloud transformation on track through every obstacle and delivered results that genuinely exceeded expectations.</p>
-                <div class="testimonial-author">
-                  <div class="author-info">
-                    <h4>Engagement Lead</h4>
-                    <p>Accenture</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="testimonial-controls">
-            <button class="slider-btn" id="sliderPrev" aria-label="Previous testimonial">←</button>
-            <div class="slider-dots" id="sliderDots"></div>
-            <button class="slider-btn" id="sliderNext" aria-label="Next testimonial">→</button>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 9. AWARDS & RECOGNITION -->
-    <section class="section reveal" id="awards">
-      <div class="container">
-        <div class="section-hd-wrap">
-          <span class="section-eyebrow">Awards &amp; Achievements</span>
-          <h2 class="section-title">Notable Milestones</h2>
-        </div>
-        <div class="awards-grid">
-          <div class="award-card">
-            <div class="award-icon-box">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
-            </div>
-            <div class="award-info">
-              <h4>98% On-Time Delivery Rate</h4>
-              <p>Accenture · Sustained over 12 months for global retail client cloud transformation.</p>
-            </div>
-          </div>
-          <div class="award-card">
-            <div class="award-icon-box">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
-            </div>
-            <div class="award-info">
-              <h4>100% Uptime Cutover</h4>
-              <p>Life Tech Vietnam · Zero service disruption during government cloud environment migration.</p>
-            </div>
-          </div>
-          <div class="award-card">
-            <div class="award-icon-box">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
-            </div>
-            <div class="award-info">
-              <h4>$30M+ Enterprise Portfolio</h4>
-              <p>Accenture · Successfully governed and delivered project value portfolio.</p>
-            </div>
-          </div>
-          <div class="award-card">
-            <div class="award-icon-box">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
-            </div>
-            <div class="award-info">
-              <h4>PMP® Project Management Professional</h4>
-              <p>PMI · Globally accredited project manager credential.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 10. CONTACT & INTERACTIVE EMAIL BUILDER -->
-    <section class="contact-section" id="contact">
-      <div class="container">
-        <div class="contact-grid">
-          <div class="contact-info">
-            <span class="section-eyebrow">Get in touch</span>
-            <h2>Let's build something remarkable.</h2>
-            <p>I'm always open to discussing new project governance opportunities, cloud infrastructures, or program management strategies.</p>
-            <span class="availability-badge">Available for opportunities</span>
-            
-            <div class="contact-list">
-              <a href="mailto:hoanghango1912@gmail.com" class="contact-item">
-                <span class="contact-item-icon">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-                </span>
-                hoanghango1912@gmail.com
-              </a>
-              <a href="tel:+840373247478" class="contact-item">
-                <span class="contact-item-icon">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.1 19.79 19.79 0 0 1 1.61 4.5C1.6 3.44 2.35 2.57 3.4 2.39L6.4 2a2 2 0 0 1 2 1.22l1.35 3.34a2 2 0 0 1-.45 2.11L8 10a16 16 0 0 0 6 6l1.33-1.3a2 2 0 0 1 2.11-.45l3.34 1.35a2 2 0 0 1 1.22 2z"/></svg>
-                </span>
-                0373 247 478
-              </a>
-              <a href="https://linkedin.com/in/hoanghango" target="_blank" class="contact-item">
-                <span class="contact-item-icon">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-                </span>
-                linkedin.com/in/hoanghango
-              </a>
-            </div>
-          </div>
-
-          <div class="message-builder">
-            <h3 class="builder-title">Interactive Message Builder</h3>
-            
-            <div class="form-group">
-              <label>Select Purpose</label>
-              <div class="intent-labels" id="intentLabels">
-                <button class="intent-btn active" data-intent="recruit">Hire Me / PM Role</button>
-                <button class="intent-btn" data-intent="consult">Cloud / PMO Consultation</button>
-                <button class="intent-btn" data-intent="coffee">Coffee Chat &amp; Networking</button>
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label for="visitorName">Your Name</label>
-              <input type="text" id="visitorName" class="form-control" placeholder="Jane Doe" value="Recruiting Partner">
-            </div>
-
-            <div class="form-group">
-              <label for="emailBody">Generated Message</label>
-              <textarea id="emailBody" class="form-control"></textarea>
-            </div>
-
-            <button class="btn btn-primary" style="width: 100%; justify-content: center;" id="sendEmailBtn">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
-              Open Mail Client
-            </button>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer>
-      <div class="container">
-        <p>&copy; 2026 Ha Ngo (Hazel). All rights reserved.</p>
-      </div>
-    </footer>
+  <!-- STICKY HEADER NAVIGATION -->
+  <div class="nav-wrapper">
+    <div class="container nav-container">
+      <a href="#hero" class="nav-logo">Hazel<span>.</span></a>
+      <nav class="nav-menu" id="navMenu">
+        <a href="#summary" class="nav-link">Summary</a>
+        <a href="#profile" class="nav-link">Approach</a>
+        <a href="#skills" class="nav-link">Skills</a>
+        <a href="#certs" class="nav-link">Credentials</a>
+        <a href="#cases" class="nav-link">Cases</a>
+        <a href="#testimonials" class="nav-link">Colleagues</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </nav>
+    </div>
   </div>
 
-  <script>
-    // ── THEME SWITCH LOGIC ──
-    const themeToggler = document.getElementById('themeToggler');
-    const htmlEl = document.documentElement;
-    
-    // Check saved local theme
-    const savedTheme = localStorage.getItem('portfolio-theme') || 'dark';
-    htmlEl.setAttribute('data-theme', savedTheme);
-    
-    themeToggler.addEventListener('click', () => {
-      const currentTheme = htmlEl.getAttribute('data-theme');
-      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-      htmlEl.setAttribute('data-theme', newTheme);
-      localStorage.setItem('portfolio-theme', newTheme);
-    });
+  <!-- 2. EXECUTIVE SUMMARY -->
+  <section class="section reveal" id="summary">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow">Executive Summary</span>
+        <h2 class="section-title">Career Overview</h2>
+      </div>
+      <div class="summary-card">
+        <p class="summary-text">
+          Certified <strong>PMP Project Manager</strong> with 3+ years of hands-on experience leading complex IT delivery, cloud infrastructure, and software product initiatives across APAC and EMEA. I specialise in translating technical complexity into strategic, business-aligned outcomes — steering migrations from legacy infrastructure to modern cloud platforms, overseeing multi-track software development programmes, and driving cross-functional teams toward consistent on-time, on-budget delivery.<br><br>
+          My career spans global luxury retail transformation at <strong>Accenture</strong> and government technology programmes for the Singapore Government at <strong>Life Tech Vietnam</strong>, with a background in quality and R&D that underpins my structured, data-driven approach to project governance. I bring a hybrid methodology mindset — applying Agile sprint cycles where speed matters and Waterfall rigour where compliance and predictability are paramount.
+        </p>
+        <div class="stats-grid" id="statsGrid">
+          <div class="stat-box">
+            <span class="stat-num counter-target" data-target="3" data-suffix="+">0+</span>
+            <span class="stat-lbl">Years PM Experience</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-num counter-target" data-target="98" data-suffix="%">0%</span>
+            <span class="stat-lbl">On-Time Delivery</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-num counter-target" data-target="30" data-prefix="$" data-suffix="M+">0M+</span>
+            <span class="stat-lbl">Revenue Governed</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-num counter-target" data-target="50" data-suffix="+">0+</span>
+            <span class="stat-lbl">Apps Migrated</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-num counter-target" data-target="100" data-suffix="%">0%</span>
+            <span class="stat-lbl">Service Uptime</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
+  <!-- 3. APPROACH / LEADERSHIP STYLE -->
+  <section class="section reveal" id="profile">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow">Professional Profile</span>
+        <h2 class="section-title">Leadership Style &amp; Approach</h2>
+      </div>
+      <div class="profile-grid">
+        <div class="profile-card">
+          <h3>Leadership Style</h3>
+          <p>Collaborative and outcome-focused. I lead by building clarity — clear goals, clear owners, clear escalation paths. I invest early in stakeholder alignment and team structure so that execution stays smooth even when complexity scales. Comfortable managing multicultural, cross-functional teams across time zones and seniority levels.</p>
+        </div>
+        <div class="profile-card">
+          <h3>Project Methodologies</h3>
+          <p>Hybrid practitioner — I apply the right framework to the right context:</p>
+          <div class="method-pills">
+            <span class="pill purple">Agile / Scrum</span>
+            <span class="pill blue">Waterfall</span>
+            <span class="pill teal">Hybrid delivery</span>
+            <span class="pill amber">Kanban</span>
+            <span class="pill gray">PMBOK</span>
+          </div>
+        </div>
+        <div class="profile-card">
+          <h3>Industry Specialisation</h3>
+          <ul>
+            <li>Cloud infrastructure &amp; migration (Azure, GCC)</li>
+            <li>Enterprise IT delivery &amp; PMO</li>
+            <li>Government technology programmes</li>
+            <li>Global luxury retail transformation</li>
+            <li>Software product development</li>
+          </ul>
+        </div>
+        <div class="profile-card">
+          <h3>Management Approach</h3>
+          <ul>
+            <li>End-to-end lifecycle ownership</li>
+            <li>Proactive risk identification and mitigation</li>
+            <li>Executive steering committee facilitation</li>
+            <li>Vendor and cost optimisation</li>
+            <li>Change management and communication</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. CORE SKILLS (FILTERABLE) -->
+  <section class="section reveal" id="skills">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow">Skills &amp; Competencies</span>
+        <h2 class="section-title">Core Areas of Expertise</h2>
+      </div>
+
+      <div class="filter-tabs">
+        <button class="filter-btn active" data-filter="all">All Specialties</button>
+        <button class="filter-btn" data-filter="governance">Governance &amp; PMO</button>
+        <button class="filter-btn" data-filter="risk">Risk &amp; Quality</button>
+        <button class="filter-btn" data-filter="delivery">Delivery Frameworks</button>
+        <button class="filter-btn" data-filter="technical">Cloud &amp; IT</button>
+        <button class="filter-btn" data-filter="tools">Tools</button>
+      </div>
+
+      <div class="skills-grid" id="skillsGrid">
+        <div class="skill-card" data-category="governance">
+          <h3>Governance &amp; PMO</h3>
+          <ul>
+            <li>Project governance frameworks</li>
+            <li>PMO alignment &amp; reporting</li>
+            <li>Scope &amp; change control</li>
+            <li>RAID log management</li>
+          </ul>
+        </div>
+        <div class="skill-card" data-category="risk">
+          <h3>Risk &amp; Quality</h3>
+          <ul>
+            <li>Risk identification &amp; mitigation</li>
+            <li>Quality assurance planning</li>
+            <li>Issue escalation management</li>
+            <li>Root cause analysis</li>
+          </ul>
+        </div>
+        <div class="skill-card" data-category="governance">
+          <h3>Stakeholder Comms</h3>
+          <ul>
+            <li>Executive stakeholder management</li>
+            <li>Steering committee facilitation</li>
+            <li>Cross-cultural team leadership</li>
+            <li>Workshop facilitation</li>
+          </ul>
+        </div>
+        <div class="skill-card" data-category="delivery">
+          <h3>Delivery Frameworks</h3>
+          <ul>
+            <li>Agile sprint planning</li>
+            <li>Lean delivery practices</li>
+            <li>Waterfall project scheduling</li>
+            <li>Hybrid program management</li>
+          </ul>
+        </div>
+        <div class="skill-card" data-category="technical">
+          <h3>Cloud &amp; IT</h3>
+          <ul>
+            <li>Cloud migration (Azure, GCC)</li>
+            <li>Infrastructure program management</li>
+            <li>Application modernisation</li>
+            <li>System performance tuning</li>
+          </ul>
+        </div>
+        <div class="skill-card" data-category="tools">
+          <h3>Collaboration Tools</h3>
+          <ul>
+            <li>Jira &amp; Confluence</li>
+            <li>Redmine</li>
+            <li>Microsoft Project</li>
+            <li>ServiceNow</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. CREDENTIALS -->
+  <section class="section reveal" id="certs">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow">Certifications &amp; Education</span>
+        <h2 class="section-title">Credentials</h2>
+      </div>
+      
+      <div class="cert-grid">
+        <div class="cert-card">
+          <div class="cert-icon-box pmp">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+          </div>
+          <div class="cert-info">
+            <h4>Project Management Professional (PMP®)</h4>
+            <p>PMI · 2026</p>
+          </div>
+        </div>
+        
+        <div class="cert-card">
+          <div class="cert-icon-box google">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          </div>
+          <div class="cert-info">
+            <h4>System Administration &amp; IT Infrastructure</h4>
+            <p>Google · 2024</p>
+          </div>
+        </div>
+
+        <div class="cert-card">
+          <div class="cert-icon-box ibm">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          </div>
+          <div class="cert-info">
+            <h4>Web Development with HTML, CSS</h4>
+            <p>IBM · 2024</p>
+          </div>
+        </div>
+
+        <div class="cert-card">
+          <div class="cert-icon-box ux">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+          </div>
+          <div class="cert-info">
+            <h4>Foundations of UX Design</h4>
+            <p>Google · 2024</p>
+          </div>
+        </div>
+
+        <div class="cert-card">
+          <div class="cert-icon-box lang">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M5 8l6 6"/><path d="M4 14l6-6 2-3"/><path d="M2 5h12"/><path d="M7 2h1"/><path d="M22 22l-5-10-5 10"/><path d="M14 18h6"/></svg>
+          </div>
+          <div class="cert-info">
+            <h4>TOEIC 860 — English Proficiency</h4>
+            <p>IIG Vietnam · 2020</p>
+          </div>
+        </div>
+
+        <div class="cert-card">
+          <div class="cert-icon-box edu">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+          </div>
+          <div class="cert-info">
+            <h4>Bachelor of Food Technology</h4>
+            <p>HCMUTE · 2017–2021</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. FEATURED CASE STUDIES -->
+  <section class="section reveal" id="cases">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow">Project Case Studies</span>
+        <h2 class="section-title">Featured Projects</h2>
+      </div>
+
+      <!-- CASE 1 -->
+      <div class="case-card" id="project1">
+        <div class="case-header">
+          <div class="case-top-left">
+            <p class="case-client">Accenture · Apr 2025 – Present</p>
+            <h3 class="case-card-title">Enterprise Cloud Transformation — On-Prem to Azure</h3>
+            <p class="case-card-meta">Global Luxury Retail Client &nbsp;·&nbsp; 10+ Engineers &nbsp;·&nbsp; 50+ Applications &nbsp;·&nbsp; EMEA / APAC</p>
+          </div>
+          <span class="case-tag-badge">Cloud Migration</span>
+        </div>
+
+        <div class="case-body">
+          <div class="car-tabs">
+            <button class="car-tab-btn active" data-tab="context-1">Context</button>
+            <button class="car-tab-btn" data-tab="actions-1">Actions</button>
+            <button class="car-tab-btn" data-tab="results-1">Results</button>
+            <button class="car-tab-btn" data-tab="process-1">Process Flow</button>
+          </div>
+
+          <!-- Tab Pane: Context -->
+          <div class="car-pane active" id="context-1">
+            <div class="car-grid">
+              <div class="car-col">
+                <h4>The Challenge</h4>
+                <p>Led a large-scale cloud transformation initiative to migrate 50+ legacy on-premises applications to Microsoft Azure for a global luxury retail client. The programme required a long-term cloud strategy, tight vendor coordination, and zero tolerance for service disruption across EMEA and APAC operations.</p>
+              </div>
+              <div class="car-col">
+                <h4>Strategic Goals</h4>
+                <ul class="car-bullet-list">
+                  <li>Zero disruption for global point-of-sale transactions.</li>
+                  <li>Vendor alignment on target state infrastructure SLAs.</li>
+                  <li>Optimized hosting cost models on Azure.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tab Pane: Actions -->
+          <div class="car-pane" id="actions-1">
+            <div class="car-grid">
+              <div class="car-col">
+                <h4>Governance &amp; Leadership</h4>
+                <p>Established robust PMO delivery standards, structured multi-workstream engineering outputs, and maintained regular executive alignments.</p>
+              </div>
+              <div class="car-col">
+                <h4>Action Plan</h4>
+                <ul class="car-bullet-list">
+                  <li>Managed cross-functional team of 10+ engineers end-to-end.</li>
+                  <li>Mapped system dependencies and application cloud readiness profiles.</li>
+                  <li>Facilitated root cause analysis sessions and stakeholder alignment workshops.</li>
+                  <li>Maintained rigorous risk logs (RAID) and milestone schedules.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tab Pane: Results -->
+          <div class="car-pane" id="results-1">
+            <div class="car-grid">
+              <div class="car-col">
+                <h4>Project Outcomes</h4>
+                <p>Ensured precise schedule management, resulting in high delivery metrics and financial efficiency.</p>
+              </div>
+              <div class="car-col">
+                <h4>Metrics Achieved</h4>
+                <ul class="car-bullet-list">
+                  <li>98% on-time project delivery rate over 12 months.</li>
+                  <li>$30M+ in revenue portfolio successfully delivered.</li>
+                  <li>30% reduction in infrastructure operational vendor costs.</li>
+                  <li>50+ legacy applications modernized on modern Azure cloud.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tab Pane: Process Flow -->
+          <div class="car-pane" id="process-1">
+            <div class="process-wrapper">
+              <p class="process-track-name">Azure Migration Roadmap (Interactive)</p>
+              <div class="process-steps-row">
+                <div class="process-node active" data-flow="p1-s1">
+                  <span class="process-node-num">Step 1</span>
+                  <p class="process-node-title">Inventory Audit</p>
+                </div>
+                <div class="process-arrow">→</div>
+                <div class="process-node" data-flow="p1-s2">
+                  <span class="process-node-num">Step 2</span>
+                  <p class="process-node-title">Assessment</p>
+                </div>
+                <div class="process-arrow">→</div>
+                <div class="process-node" data-flow="p1-s3">
+                  <span class="process-node-num">Step 3</span>
+                  <p class="process-node-title">Planning</p>
+                </div>
+                <div class="process-arrow">→</div>
+                <div class="process-node" data-flow="p1-s4">
+                  <span class="process-node-num">Step 4</span>
+                  <p class="process-node-title">Migration Run</p>
+                </div>
+                <div class="process-arrow">→</div>
+                <div class="process-node" data-flow="p1-s5">
+                  <span class="process-node-num">Step 5</span>
+                  <p class="process-node-title">Azure Live</p>
+                </div>
+              </div>
+              <div class="process-details-pane">
+                <h4 class="process-details-title" id="p1-details-title">Inventory Audit</h4>
+                <p class="process-details-text" id="p1-details-text">Audit of 50+ on-premises servers, resource utilization baseline mapping, and dependencies analysis.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- CASE 2 -->
+      <div class="case-card" id="project2">
+        <div class="case-header">
+          <div class="case-top-left">
+            <p class="case-client">Life Tech Vietnam · Mar 2023 – Mar 2025</p>
+            <h3 class="case-card-title">Software Development &amp; GCC Cloud Migration</h3>
+            <p class="case-card-meta">Singapore Government Client &nbsp;·&nbsp; 6+ Web Applications &nbsp;·&nbsp; 3 Workstreams</p>
+          </div>
+          <span class="case-tag-badge">Software &amp; Migration</span>
+        </div>
+
+        <div class="case-body">
+          <div class="car-tabs">
+            <button class="car-tab-btn active" data-tab="context-2">Context</button>
+            <button class="car-tab-btn" data-tab="actions-2">Actions</button>
+            <button class="car-tab-btn" data-tab="results-2">Results</button>
+            <button class="car-tab-btn" data-tab="process-2">Process Flow</button>
+          </div>
+
+          <!-- Tab Pane: Context -->
+          <div class="car-pane active" id="context-2">
+            <div class="car-grid">
+              <div class="car-col">
+                <h4>The Challenge</h4>
+                <p>Coordinated two simultaneous programmes for a Singapore Government client: developing 8 new features within an existing web system, and migrating 6+ applications from legacy GCC1 cloud infrastructure to the new GCC2 environment — all while maintaining 100% service uptime.</p>
+              </div>
+              <div class="car-col">
+                <h4>Strategic Goals</h4>
+                <ul class="car-bullet-list">
+                  <li>Comply with strict GovTech security baselines.</li>
+                  <li>Ensure zero downtime during system migration cutovers.</li>
+                  <li>Govern multi-workstream feature delivery dates.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tab Pane: Actions -->
+          <div class="car-pane" id="actions-2">
+            <div class="car-grid">
+              <div class="car-col">
+                <h4>Governance &amp; Leadership</h4>
+                <p>Chaired weekly progress calls, resolved dependencies between infrastructure and feature engineering tracks, and mitigated resource conflicts.</p>
+              </div>
+              <div class="car-col">
+                <h4>Action Plan</h4>
+                <ul class="car-bullet-list">
+                  <li>Coordinated three cross-functional workstreams simultaneously.</li>
+                  <li>Managed product backlogs, user stories, and agile sprint gates.</li>
+                  <li>Authored weekend environment transition runsheets and validation checkmarks.</li>
+                  <li>Coordinated validation cycles with government QA stakeholders.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tab Pane: Results -->
+          <div class="car-pane" id="results-2">
+            <div class="car-grid">
+              <div class="car-col">
+                <h4>Project Outcomes</h4>
+                <p>Delivered enhanced portal functionalities and complete system modernization without business disruption.</p>
+              </div>
+              <div class="car-col">
+                <h4>Metrics Achieved</h4>
+                <ul class="car-bullet-list">
+                  <li>100% portal uptime maintained throughout environment migrations.</li>
+                  <li>40% reduction in production incident counts.</li>
+                  <li>30% enhancement in portal page loading latency.</li>
+                  <li>All 8 planned portal upgrades delivered on schedule.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tab Pane: Process Flow -->
+          <div class="car-pane" id="process-2">
+            <div class="process-wrapper">
+              <p class="process-track-name">Government GCC Migration Pipeline (Interactive)</p>
+              <div class="process-steps-row">
+                <div class="process-node active" data-flow="p2-s1">
+                  <span class="process-node-num">Step 1</span>
+                  <p class="process-node-title">GCC1 Audit</p>
+                </div>
+                <div class="process-arrow">→</div>
+                <div class="process-node" data-flow="p2-s2">
+                  <span class="process-node-num">Step 2</span>
+                  <p class="process-node-title">Migration Prep</p>
+                </div>
+                <div class="process-arrow">→</div>
+                <div class="process-node" data-flow="p2-s3">
+                  <span class="process-node-num">Step 3</span>
+                  <p class="process-node-title">Cutover window</p>
+                </div>
+                <div class="process-arrow">→</div>
+                <div class="process-node" data-flow="p2-s4">
+                  <span class="process-node-num">Step 4</span>
+                  <p class="process-node-title">GCC2 Live</p>
+                </div>
+              </div>
+              <div class="process-details-pane">
+                <h4 class="process-details-title" id="p2-details-title">GCC1 Audit</h4>
+                <p class="process-details-text" id="p2-details-text">GCC1 cloud setup inventory, firewall & network rule auditing, GovTech compliance checks, and SLA definitions.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 7. OPERATIONAL TOOLKIT -->
+  <section class="section reveal" id="tools">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow">Operational Toolkit</span>
+        <h2 class="section-title">Tools &amp; Templates</h2>
+      </div>
+      <div class="skills-grid">
+        <div class="skill-card">
+          <h3>Project Management</h3>
+          <ul>
+            <li>Jira</li>
+            <li>Confluence</li>
+            <li>Redmine</li>
+            <li>Microsoft Project</li>
+          </ul>
+        </div>
+        <div class="skill-card">
+          <h3>ITSM &amp; Governance</h3>
+          <ul>
+            <li>ServiceNow</li>
+            <li>RAID Log Templates</li>
+            <li>Change Request Forms</li>
+          </ul>
+        </div>
+        <div class="skill-card">
+          <h3>Reporting &amp; Comms</h3>
+          <ul>
+            <li>Weekly Status Reports</li>
+            <li>Steering Committee decks</li>
+            <li>RACI Stakeholder matrices</li>
+          </ul>
+        </div>
+        <div class="skill-card">
+          <h3>Technical Exposure</h3>
+          <ul>
+            <li>Microsoft Azure</li>
+            <li>GCC1 / GCC2 Platforms</li>
+            <li>HTML &amp; CSS fundamentals</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. TESTIMONIALS SLIDER -->
+  <section class="section reveal" id="testimonials">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow">Testimonials</span>
+        <h2 class="section-title">What Colleagues Say</h2>
+      </div>
+
+      <div class="slider-container">
+        <div class="slider-track" id="testimonialTrack">
+          <!-- Slide 1 -->
+          <div class="slider-slide">
+            <div class="testimonial-card">
+              <p class="testimonial-quote">"Hazel consistently demonstrated the ability to manage competing priorities across multiple workstreams without losing sight of delivery quality. Her proactive approach to risk and her clear, structured communication made her an invaluable part of our programme."</p>
+              <div class="testimonial-author">
+                <p class="testimonial-author-name">Senior Programme Manager</p>
+                <p class="testimonial-author-title">Life Tech Vietnam</p>
+              </div>
+            </div>
+          </div>
+          <!-- Slide 2 -->
+          <div class="slider-slide">
+            <div class="testimonial-card">
+              <p class="testimonial-quote">"What sets Hazel apart is her ability to translate complex technical challenges into language that resonates with business stakeholders. She kept our cloud transformation on track through every obstacle and delivered results that genuinely exceeded expectations."</p>
+              <div class="testimonial-author">
+                <p class="testimonial-author-name">Engagement Lead</p>
+                <p class="testimonial-author-title">Accenture</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="slider-nav">
+          <button class="slider-nav-btn" id="sliderPrev" aria-label="Previous testimonial">←</button>
+          <div class="slider-dot-indicators" id="sliderDots"></div>
+          <button class="slider-nav-btn" id="sliderNext" aria-label="Next testimonial">→</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. AWARDS & ACHIEVEMENTS -->
+  <section class="section reveal" id="awards">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow">Awards &amp; Recognition</span>
+        <h2 class="section-title">Notable Achievements</h2>
+      </div>
+      <div class="awards-grid">
+        <div class="award-card">
+          <div class="award-icon-wrapper">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
+          </div>
+          <div class="award-details">
+            <h4>98% On-Time Delivery Rate</h4>
+            <p>Accenture · Sustained over 12 months for global retail client cloud transformation.</p>
+          </div>
+        </div>
+
+        <div class="award-card">
+          <div class="award-icon-wrapper">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
+          </div>
+          <div class="award-details">
+            <h4>100% Uptime Cutover</h4>
+            <p>Life Tech Vietnam · Zero service disruption during government cloud environment migration.</p>
+          </div>
+        </div>
+
+        <div class="award-card">
+          <div class="award-icon-wrapper">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
+          </div>
+          <div class="award-details">
+            <h4>$30M+ Enterprise Portfolio</h4>
+            <p>Accenture · Successfully governed and delivered project value portfolio.</p>
+          </div>
+        </div>
+
+        <div class="award-card">
+          <div class="award-icon-wrapper">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
+          </div>
+          <div class="award-details">
+            <h4>PMP® Certification</h4>
+            <p>PMI · Globally accredited project manager credential.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10. CONTACT & MESSAGE BUILDER -->
+  <section class="contact-section" id="contact">
+    <div class="container">
+      <div class="contact-layout">
+        <div class="contact-details-col">
+          <span class="section-eyebrow">Get in touch</span>
+          <h2>Let's build something remarkable.</h2>
+          <p>I'm always open to discussing new project governance opportunities, cloud infrastructures, or program management strategies.</p>
+          
+          <div class="availability-pill">Available for opportunities</div>
+
+          <div class="contact-links-list">
+            <a href="mailto:hoanghango1912@gmail.com" class="contact-link-row">
+              <span class="contact-icon-shell">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              </span>
+              hoanghango1912@gmail.com
+            </a>
+            <a href="tel:+840373247478" class="contact-link-row">
+              <span class="contact-icon-shell">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.1 19.79 19.79 0 0 1 1.61 4.5C1.6 3.44 2.35 2.57 3.4 2.39L6.4 2a2 2 0 0 1 2 1.22l1.35 3.34a2 2 0 0 1-.45 2.11L8 10a16 16 0 0 0 6 6l1.33-1.3a2 2 0 0 1 2.11-.45l3.34 1.35a2 2 0 0 1 1.22 2z"/></svg>
+              </span>
+              0373 247 478
+            </a>
+            <a href="https://linkedin.com/in/hoanghango" target="_blank" class="contact-link-row">
+              <span class="contact-icon-shell">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+              </span>
+              linkedin.com/in/hoanghango
+            </a>
+          </div>
+        </div>
+
+        <div class="msg-builder-box">
+          <h3 class="builder-header">Interactive Message Builder</h3>
+          
+          <div class="form-field-group">
+            <label>Select Purpose</label>
+            <div class="builder-intent-selectors" id="intentLabels">
+              <button class="intent-selector-btn active" data-intent="recruit">Hire Me / PM Role</button>
+              <button class="intent-selector-btn" data-intent="consult">Cloud / PMO Consultation</button>
+              <button class="intent-selector-btn" data-intent="coffee">Coffee Chat &amp; Networking</button>
+            </div>
+          </div>
+
+          <div class="form-field-group">
+            <label for="visitorName">Your Name</label>
+            <input type="text" id="visitorName" class="form-input-element" placeholder="Jane Doe" value="Recruiting Partner">
+          </div>
+
+          <div class="form-field-group">
+            <label for="emailBody">Generated Message</label>
+            <textarea id="emailBody" class="form-input-element"></textarea>
+          </div>
+
+          <button class="submit-btn-row" id="sendEmailBtn">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            Open Mail Client
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 Ha Ngo (Hazel). All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
     // ── SCROLL PROGRESS INDICATOR ──
     window.addEventListener('scroll', () => {
       const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
@@ -2286,12 +1949,11 @@ footer {
     // ── REVEAL ON SCROLL ──
     const revealElements = document.querySelectorAll('.reveal');
     const checkReveal = () => {
-      const triggerBottom = window.innerHeight * 0.85;
+      const triggerBottom = window.innerHeight * 0.88;
       revealElements.forEach(el => {
         const top = el.getBoundingClientRect().top;
         if (top < triggerBottom) {
           el.classList.add('active');
-          // Trigger counter animation if it's the summary section
           if (el.id === 'summary') {
             animateCountersOnce();
           }
@@ -2310,8 +1972,7 @@ footer {
       let current = '';
       sections.forEach(section => {
         const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-        if (pageYOffset >= (sectionTop - 120)) {
+        if (pageYOffset >= (sectionTop - 100)) {
           current = section.getAttribute('id');
         }
       });
@@ -2330,7 +1991,7 @@ footer {
       if (countersAnimated) return;
       countersAnimated = true;
 
-      const counters = document.querySelectorAll('.counter-value');
+      const counters = document.querySelectorAll('.counter-target');
       counters.forEach(counter => {
         const target = parseFloat(counter.getAttribute('data-target'));
         const suffix = counter.getAttribute('data-suffix') || '';
@@ -2342,7 +2003,6 @@ footer {
         function updateCounter(currentTime) {
           const elapsed = currentTime - startTime;
           const progress = Math.min(elapsed / duration, 1);
-          // Easing: easeOutExpo
           const easeProgress = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
           const currentValue = start + (target - start) * easeProgress;
           
@@ -2368,7 +2028,6 @@ footer {
 
     filterButtons.forEach(btn => {
       btn.addEventListener('click', () => {
-        // Toggle active button
         filterButtons.forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
 
@@ -2390,7 +2049,7 @@ footer {
       btn.addEventListener('click', () => {
         const cardBody = btn.closest('.case-body');
         const tabs = cardBody.querySelectorAll('.car-tab-btn');
-        const contents = cardBody.querySelectorAll('.car-content');
+        const contents = cardBody.querySelectorAll('.car-pane');
         
         tabs.forEach(t => t.classList.remove('active'));
         btn.classList.add('active');
@@ -2406,52 +2065,50 @@ footer {
     });
 
     // ── INTERACTIVE CASE STUDY PROCESS FLOWS ──
-    // Project 1
     const p1Steps = {
       'p1-s1': {
-        title: 'On-prem Audit (Active)',
+        title: 'Inventory Audit',
         desc: 'Audit of 50+ on-premises servers, resource utilization baseline mapping, and dependencies analysis.'
       },
       'p1-s2': {
-        title: 'Assessment (Active)',
+        title: 'Assessment',
         desc: 'Security standard assessment, SLA baseline definition, risk and dependency mapping (RAID log init), and 10+ stakeholder engagement workshops.'
       },
       'p1-s3': {
-        title: 'Planning (Active)',
+        title: 'Planning',
         desc: 'Long-term cloud migration roadmap creation, target architecture designing on Azure, vendor contract alignments, and project charter approvals.'
       },
       'p1-s4': {
-        title: 'Migration (Active)',
+        title: 'Migration Run',
         desc: 'Application modernization (lift & shift / refactor), database replication, agile sprints supervision, and functional regression validation tests.'
       },
       'p1-s5': {
-        title: 'Azure Cloud (Active)',
+        title: 'Azure Live',
         desc: '98% on-time cutover execution, customer experience baseline checks, $30M+ project budget realization, and handoff to operations support.'
       }
     };
 
-    // Project 2
     const p2Steps = {
       'p2-s1': {
-        title: 'GCC1 Audit (Active)',
+        title: 'GCC1 Audit',
         desc: 'GCC1 cloud setup inventory, firewall & network rule auditing, GovTech compliance checks, and SLA definitions.'
       },
       'p2-s2': {
-        title: 'Migration Prep (Active)',
+        title: 'Migration Prep',
         desc: 'Target GCC2 zone configuration scripts development, migration runbook validations, dry-run failovers, and testing verification plans.'
       },
       'p2-s3': {
-        title: 'Cutover Run (Active)',
+        title: 'Cutover window',
         desc: 'High-pressure weekend window migration runbook execution, system monitoring live dashboard updates, and GovTech interface verification.'
       },
       'p2-s4': {
-        title: 'GCC2 Live (Active)',
+        title: 'GCC2 Live',
         desc: '100% uptime confirmation, 30% system performance optimization, incident management support window, and client sign-off.'
       }
     };
 
     const attachFlowListeners = (projectNum, stepsData) => {
-      const steps = document.querySelectorAll(`#project${projectNum} .flow-step`);
+      const steps = document.querySelectorAll(`#project${projectNum} .process-node`);
       const titleEl = document.getElementById(`p${projectNum}-details-title`);
       const textEl = document.getElementById(`p${projectNum}-details-text`);
 
@@ -2482,10 +2139,9 @@ footer {
     
     let currentIndex = 0;
 
-    // Create dots
     slides.forEach((_, index) => {
       const dot = document.createElement('div');
-      dot.classList.add('slider-dot');
+      dot.classList.add('slider-dot-item');
       if (index === 0) dot.classList.add('active');
       dot.addEventListener('click', () => goToSlide(index));
       dotsContainer.appendChild(dot);
@@ -2515,27 +2171,26 @@ footer {
       updateSlider();
     });
 
-    // Auto play testimonials
     let autoPlayTimer = setInterval(() => {
       currentIndex = (currentIndex + 1) % slides.length;
       updateSlider();
-    }, 8000);
+    }, 10000);
 
     const resetTimer = () => {
       clearInterval(autoPlayTimer);
       autoPlayTimer = setInterval(() => {
         currentIndex = (currentIndex + 1) % slides.length;
         updateSlider();
-      }, 8000);
+      }, 10000);
     };
 
     [prevBtn, nextBtn].forEach(btn => btn.addEventListener('click', resetTimer));
     dots.forEach(dot => dot.addEventListener('click', resetTimer));
 
-    // ── INTERACTIVE EMAIL MESSAGE BUILDER ──
+    // ── EMAIL BUILDER ──
     const visitorNameInput = document.getElementById('visitorName');
     const emailBodyInput = document.getElementById('emailBody');
-    const intentButtons = document.querySelectorAll('.intent-btn');
+    const intentButtons = document.querySelectorAll('.intent-selector-btn');
     const sendEmailBtn = document.getElementById('sendEmailBtn');
 
     const messageTemplates = {
@@ -2563,11 +2218,8 @@ footer {
     });
 
     visitorNameInput.addEventListener('input', updateGeneratedMessage);
-
-    // Init builder message
     updateGeneratedMessage();
 
-    // Trigger Mailto Link
     sendEmailBtn.addEventListener('click', () => {
       const email = 'hoanghango1912@gmail.com';
       const subjectMap = {
