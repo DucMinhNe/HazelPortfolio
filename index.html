@@ -1069,6 +1069,107 @@ body {
   line-height: 1.6;
 }
 
+/* Colored nodes mapping to original colors but using high contrast warm light theme vars */
+.process-step-node.gray {
+  background-color: var(--bg);
+  border-color: var(--border);
+}
+.process-step-node.gray:hover, .process-step-node.gray.active {
+  background-color: var(--surface-beige);
+  border-color: var(--ink-muted);
+}
+.process-step-node.gray.active {
+  box-shadow: 2px 2px 0 var(--ink-muted);
+}
+
+.process-step-node.purple {
+  background-color: var(--purple-light);
+  border-color: var(--purple);
+}
+.process-step-node.purple:hover, .process-step-node.purple.active {
+  background-color: #e5e2f8;
+  border-color: var(--border-dark);
+}
+.process-step-node.purple .process-step-num-text {
+  color: var(--purple);
+}
+.process-step-node.purple.active {
+  box-shadow: 2px 2px 0 var(--border-dark);
+}
+
+.process-step-node.teal {
+  background-color: var(--primary-light);
+  border-color: var(--primary);
+}
+.process-step-node.teal:hover, .process-step-node.teal.active {
+  background-color: #d1ebd8;
+  border-color: var(--border-dark);
+}
+.process-step-node.teal .process-step-num-text {
+  color: var(--primary);
+}
+.process-step-node.teal.active {
+  box-shadow: 2px 2px 0 var(--border-dark);
+}
+
+.process-step-node.blue {
+  background-color: var(--blue-light);
+  border-color: var(--blue);
+}
+.process-step-node.blue:hover, .process-step-node.blue.active {
+  background-color: #d2e4f7;
+  border-color: var(--border-dark);
+}
+.process-step-node.blue .process-step-num-text {
+  color: var(--blue);
+}
+.process-step-node.blue.active {
+  box-shadow: 2px 2px 0 var(--border-dark);
+}
+
+.process-step-node.amber {
+  background-color: var(--amber-light);
+  border-color: var(--amber);
+}
+.process-step-node.amber:hover, .process-step-node.amber.active {
+  background-color: #faebd2;
+  border-color: var(--border-dark);
+}
+.process-step-node.amber .process-step-num-text {
+  color: var(--amber);
+}
+.process-step-node.amber.active {
+  box-shadow: 2px 2px 0 var(--border-dark);
+}
+
+.track-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-subtle);
+  margin-bottom: 10px;
+  margin-top: 5px;
+}
+.track-divider {
+  border: none;
+  border-top: 1.5px dashed var(--border);
+  margin: 20px 0;
+}
+.process-outcome-metrics {
+  font-size: 12.5px;
+  color: var(--ink-muted);
+  text-align: center;
+  margin-top: 24px;
+  padding-top: 18px;
+  border-top: 1.5px solid var(--border);
+  letter-spacing: 0.02em;
+}
+.process-outcome-metrics strong {
+  color: var(--ink);
+  font-weight: 700;
+}
+
 /* ── OPERATIONAL TOOLKIT ── */
 .tools-grid {
   display: grid;
@@ -1942,33 +2043,33 @@ footer {
             <div class="process-bento-box">
               <p class="process-lane-label">Azure Migration Roadmap (Interactive)</p>
               <div class="process-nodes-scroll">
-                <div class="process-step-node active" data-flow="p1-s1">
-                  <span class="process-step-num-text">Step 1</span>
-                  <p class="process-step-name-text">Inventory Audit</p>
+                <div class="process-step-node active gray" data-flow="p1-s1">
+                  <span class="process-step-num-text">Legacy infrastructure</span>
+                  <p class="process-step-name-text">On-prem servers</p>
                 </div>
                 <div class="process-step-arrow-divider">→</div>
-                <div class="process-step-node" data-flow="p1-s2">
-                  <span class="process-step-num-text">Step 2</span>
+                <div class="process-step-node purple" data-flow="p1-s2">
+                  <span class="process-step-num-text">Scope, risks, timeline</span>
                   <p class="process-step-name-text">Assessment</p>
                 </div>
                 <div class="process-step-arrow-divider">→</div>
-                <div class="process-step-node" data-flow="p1-s3">
-                  <span class="process-step-num-text">Step 3</span>
+                <div class="process-step-node purple" data-flow="p1-s3">
+                  <span class="process-step-num-text">Strategy &amp; cloud design</span>
                   <p class="process-step-name-text">Planning</p>
                 </div>
                 <div class="process-step-arrow-divider">→</div>
-                <div class="process-step-node" data-flow="p1-s4">
-                  <span class="process-step-num-text">Step 4</span>
-                  <p class="process-step-name-text">Migration Run</p>
+                <div class="process-step-node teal" data-flow="p1-s4">
+                  <span class="process-step-num-text">Lift, shift, modernise</span>
+                  <p class="process-step-name-text">Migration</p>
                 </div>
                 <div class="process-step-arrow-divider">→</div>
-                <div class="process-step-node" data-flow="p1-s5">
-                  <span class="process-step-num-text">Step 5</span>
-                  <p class="process-step-name-text">Azure Live</p>
+                <div class="process-step-node blue" data-flow="p1-s5">
+                  <span class="process-step-num-text">50+ apps live</span>
+                  <p class="process-step-name-text">Azure cloud</p>
                 </div>
               </div>
               <div class="process-details-pane-desc">
-                <h4 class="process-details-pane-title" id="p1-details-title">Inventory Audit</h4>
+                <h4 class="process-details-pane-title" id="p1-details-title">On-prem servers</h4>
                 <p class="process-details-pane-text" id="p1-details-text">Audit of 50+ on-premises servers, resource utilization baseline mapping, and dependencies analysis.</p>
               </div>
             </div>
@@ -2056,30 +2157,64 @@ footer {
           <div class="case-panel" id="process-2">
             <div class="process-bento-box">
               <p class="process-lane-label">Government GCC Migration Pipeline (Interactive)</p>
+              
+              <p class="track-label">Track A &nbsp;·&nbsp; Software Development</p>
               <div class="process-nodes-scroll">
-                <div class="process-step-node active" data-flow="p2-s1">
-                  <span class="process-step-num-text">Step 1</span>
-                  <p class="process-step-name-text">GCC1 Audit</p>
+                <div class="process-step-node active gray" data-flow="p2-a1">
+                  <span class="process-step-num-text">8 features scoped</span>
+                  <p class="process-step-name-text">Requirements</p>
                 </div>
                 <div class="process-step-arrow-divider">→</div>
-                <div class="process-step-node" data-flow="p2-s2">
-                  <span class="process-step-num-text">Step 2</span>
+                <div class="process-step-node purple" data-flow="p2-a2">
+                  <span class="process-step-num-text">Existing system</span>
+                  <p class="process-step-name-text">Design &amp; Dev</p>
+                </div>
+                <div class="process-step-arrow-divider">→</div>
+                <div class="process-step-node purple" data-flow="p2-a3">
+                  <span class="process-step-num-text">UAT, regression</span>
+                  <p class="process-step-name-text">QA &amp; Testing</p>
+                </div>
+                <div class="process-step-arrow-divider">→</div>
+                <div class="process-step-node teal" data-flow="p2-a4">
+                  <span class="process-step-num-text">All 8 features live</span>
+                  <p class="process-step-name-text">Release</p>
+                </div>
+              </div>
+
+              <div class="track-divider"></div>
+
+              <p class="track-label">Track B &nbsp;·&nbsp; Server Migration</p>
+              <div class="process-nodes-scroll">
+                <div class="process-step-node amber" data-flow="p2-b1">
+                  <span class="process-step-num-text">Legacy cloud</span>
+                  <p class="process-step-name-text">GCC1</p>
+                </div>
+                <div class="process-step-arrow-divider">→</div>
+                <div class="process-step-node purple" data-flow="p2-b2">
+                  <span class="process-step-num-text">Plan, test, validate</span>
                   <p class="process-step-name-text">Migration Prep</p>
                 </div>
                 <div class="process-step-arrow-divider">→</div>
-                <div class="process-step-node" data-flow="p2-s3">
-                  <span class="process-step-num-text">Step 3</span>
-                  <p class="process-step-name-text">Cutover window</p>
+                <div class="process-step-node purple" data-flow="p2-b3">
+                  <span class="process-step-num-text">Zero-downtime switch</span>
+                  <p class="process-step-name-text">Cutover</p>
                 </div>
                 <div class="process-step-arrow-divider">→</div>
-                <div class="process-step-node" data-flow="p2-s4">
-                  <span class="process-step-num-text">Step 4</span>
-                  <p class="process-step-name-text">GCC2 Live</p>
+                <div class="process-step-node blue" data-flow="p2-b4">
+                  <span class="process-step-num-text">New cloud, stable</span>
+                  <p class="process-step-name-text">GCC2</p>
                 </div>
               </div>
-              <div class="process-details-pane-desc">
-                <h4 class="process-details-pane-title" id="p2-details-title">GCC1 Audit</h4>
-                <p class="process-details-pane-text" id="p2-details-text">GCC1 cloud setup inventory, firewall & network rule auditing, GovTech compliance checks, and SLA definitions.</p>
+
+              <div class="process-details-pane-desc" style="margin-top: 20px;">
+                <h4 class="process-details-pane-title" id="p2-details-title">Requirements</h4>
+                <p class="process-details-pane-text" id="p2-details-text">Scoping and detailing 8 new features within the existing web system, aligning requirements with government agency stakeholders, and defining acceptance criteria.</p>
+              </div>
+
+              <div class="process-outcome-metrics">
+                <strong>100%</strong> uptime &nbsp;·&nbsp;
+                <strong>40%</strong> fewer disruptions &nbsp;·&nbsp;
+                <strong>30%</strong> better performance
               </div>
             </div>
           </div>
@@ -2429,7 +2564,7 @@ footer {
     // ── INTERACTIVE CASE STUDY PROCESS FLOWS ──
     const p1Steps = {
       'p1-s1': {
-        title: 'Inventory Audit',
+        title: 'On-prem servers',
         desc: 'Audit of 50+ on-premises servers, resource utilization baseline mapping, and dependencies analysis.'
       },
       'p1-s2': {
@@ -2441,30 +2576,46 @@ footer {
         desc: 'Long-term cloud migration roadmap creation, target architecture designing on Azure, vendor contract alignments, and project charter approvals.'
       },
       'p1-s4': {
-        title: 'Migration Run',
+        title: 'Migration',
         desc: 'Application modernization (lift & shift / refactor), database replication, agile sprints supervision, and functional regression validation tests.'
       },
       'p1-s5': {
-        title: 'Azure Live',
+        title: 'Azure cloud',
         desc: '98% on-time cutover execution, customer experience baseline checks, $30M+ project budget realization, and handoff to operations support.'
       }
     };
 
     const p2Steps = {
-      'p2-s1': {
-        title: 'GCC1 Audit',
+      'p2-a1': {
+        title: 'Requirements',
+        desc: 'Scoping and detailing 8 new features within the existing web system, aligning requirements with government agency stakeholders, and defining acceptance criteria.'
+      },
+      'p2-a2': {
+        title: 'Design & Dev',
+        desc: 'Designing the architecture additions and implementing software features, ensuring zero impacts to the existing system codebase through modular design.'
+      },
+      'p2-a3': {
+        title: 'QA & Testing',
+        desc: 'Conducting comprehensive User Acceptance Testing (UAT) and regression testing cycles to ensure all features comply with government quality gates.'
+      },
+      'p2-a4': {
+        title: 'Release',
+        desc: 'Deploying all 8 scoped features to production, coordinating release window approvals, and ensuring immediate post-launch stability.'
+      },
+      'p2-b1': {
+        title: 'GCC1',
         desc: 'GCC1 cloud setup inventory, firewall & network rule auditing, GovTech compliance checks, and SLA definitions.'
       },
-      'p2-s2': {
+      'p2-b2': {
         title: 'Migration Prep',
         desc: 'Target GCC2 zone configuration scripts development, migration runbook validations, dry-run failovers, and testing verification plans.'
       },
-      'p2-s3': {
-        title: 'Cutover window',
+      'p2-b3': {
+        title: 'Cutover',
         desc: 'High-pressure weekend window migration runbook execution, system monitoring live dashboard updates, and GovTech interface verification.'
       },
-      'p2-s4': {
-        title: 'GCC2 Live',
+      'p2-b4': {
+        title: 'GCC2',
         desc: '100% uptime confirmation, 30% system performance optimization, incident management support window, and client sign-off.'
       }
     };
